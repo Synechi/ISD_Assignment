@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  test
+  This is a test for git.
   </body>
 </html>
