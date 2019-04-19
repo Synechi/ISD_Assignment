@@ -57,7 +57,7 @@
         </div>
         <div class="col-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">SIGN UP</a>
+            <a class="nav-link" href="signup.jsp">SIGN UP</a>
           </li>
         </div>
 

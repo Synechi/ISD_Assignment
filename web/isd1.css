@@ -153,3 +153,30 @@ td, th {
 span {
 	text-decoration: underline;
 }
+
+.signuptitle {
+        text-align: center;
+        padding: 30px;
+}
+
+.signuptable{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
+}
+
+input {
+    background-color: lightgrey;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input:focus {
+    background-color: #F2F2F2;
+    
+}
+
+caption {
+    caption-side: bottom;
+}
