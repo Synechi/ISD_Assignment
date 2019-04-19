@@ -9,147 +9,143 @@ and open the template in the editor.
 */
 
 .jumbotron.jumbotron{
-    background: url("https://assets1.ignimgs.com/2018/10/05/omwcmdgz3h64-1538767476505_1280w.png") no-repeat center center; 
+    background: url("https://ewedit.files.wordpress.com/2017/02/fp_00046r_rgb.jpg") no-repeat center center; 
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
-    background-size: 100% 100%;
-    opacity: 0.4;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.9;
+        text-decoration-color: white;
 }
 
-body {
-	background: url(background.png); /*Photo Credit: Istockphotos */
-	margin: auto;
+html, body {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: whitesmoke;
+}
+
+
+h1 {
+    margin: 40px;
+	color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    text-align: left;
+    
+}
+.signuptitle {
+        text-align: center;
+        padding: 30px;
+}
+
+.signuptable{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
+}
+
+input {
+    background-color: lightgrey;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input:focus {
+    background-color: #F2F2F2;
+    
+}
+
+caption {
+    caption-side: bottom;
+}
+
+.nav-link {
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing:0.1em;
+    color: white!important;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+ }
+ 
+.card {
+        justify-content: space-between;
+    background-color: whitesmoke!important;
+    border: none!important;
+}
+
+.navbar navbar-expand-lg navbar-light bg-light {
+    background-color: black;
+      position: fixed;
+
+}
+
+.bg-light {
+    background-color: black!important;
+
+}
+
+.nav-link:hover {
+    color: #e1ad01!important;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #e1ad01;
+    border-color: #cba117;
+}
+
+p {
+    color: white;
+    margin: 40px;
 }
 
 .nav {
-	background-color: white;
-	min-height: 3vh; /* Reference: https://www.quirksmode.org/css/viewport.html */
-	margin: 0;
-	padding-bottom: 4px;
-	display: block;
-	overflow: hidden;
-    border-bottom-style: dotted;
-    text-align: center;
+    background-color: black;
+    width: 100%;
 }
 
-#logo {
-    width: 50%;
-    height: 50%;
+.lead {
+    color: white;
 }
 
-.nav li {
-	display: inline;
-    max-width: 192px;
-}
-
-.nav a {
-    padding: 24px 20px 15px 20px;
-	margin: 25px;
-	color: black;
-	font-family: 'Poppins', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	text-decoration: none;
-	letter-spacing:0.1em;
-    max-width: 960px;
-    width: 80%;
-}
-
-.nav li a:hover {
-  text-decoration: overline #8ab064;
-  color: #8ab064;
-}
-
-.nav li a.active {
-  text-decoration: overline #8ab064;
-  color: #8ab064;
-}
-
-.content {
-	margin: auto;
-	color: black;
-	max-width: 850px;
-	height: 100%;
-	padding: 10px;
-}
-
-h1 {
-	font-family: sans-serif;
-	color: #606060;
-	font-size: 30px;
-	text-align: left;
-	letter-spacing: 1px;
-}
 
 h2 {
-	color: #8ab064;
-	font-size: 17px;
-	font-family: 'Leto', sans-serif;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin:40px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing:0.1em;
 }
 
-h3 {
-	font-style: italic;
-	color: black;
+.right {
+    align-content: right;
+    text-align: right;
 }
-
-p , ol, li, th, td, h3{
-	font-family: sans-serif;
- 	font-size: 16px;
-}
-
-#profile {
-    width: 180px;
-    height: 180px;
-    float: right;
-    padding: 20px;
-    padding-left: 0px;
-}
-
-#ncss {
-	width: 340px;
-	height: 220px;
-    float: left;
-    padding: 20px;
-}
-
-#colourtable th {
-	padding-left: 40px;
-	padding-right: 40px;
-	text-align: center;
-}
-
-#colourtable {
-	text-align: center;
-}
-
-#selectortable th {
-	background-color: #606060;
-	color: white;
-	border: solid 1px black;
-	text-align: center;
-	padding: 30px 15px 30px 15px;
-}
-
-#selectortable {
-	text-align: center;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
-#selectortable tr {
-	background-color: white;
-	text-align: center;
-	padding: 50px 15px 50px 15px;
-}
-
-td, th {
-	padding-left: 60px;
-	padding-right: 60px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-
 span {
-	text-decoration: underline;
+background-color: black;
+    opacity: 0.6;
+}
+
+th {
+    text-align: left;
+    font-size: 15px;
+}
+
+button {
+    align-content: center;
 }

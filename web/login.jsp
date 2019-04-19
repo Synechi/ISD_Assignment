@@ -41,12 +41,12 @@
                                 </div>
                                 <div class="col-auto">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="movies.html">MOVIES</a>
+                                        <a class="nav-link" href="movies.jsp">MOVIES</a>
                                     </li>
                                 </div>
                                 <div class="col-auto">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about.html">ABOUT</a>
+                                        <a class="nav-link" href="about.jsp">ABOUT</a>
                                     </li>
                                 </div>
                         </div>
