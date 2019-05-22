@@ -18,11 +18,11 @@ public class User {
     private String city;
     private String state;
     private String country;
-    private String  postcode;
+    private String postcode;
     private String dob;
-    private String accType;
+    private int accType;
 
-    public User(String ID, String name, String email, String username, String password, String address, String city, String state, String country, String postcode, String dob, String accType) {
+    public User(String ID, String name, String email, String username, String password, String address, String city, String state, String country, String postcode, String dob, int accType) {
         this.ID = ID;
         this.name = name;
         this.email = email;
@@ -125,11 +125,11 @@ public class User {
         this.dob = dob;
     }
 
-    public String getAccType() {
+    public int getAccType() {
         return accType;
     }
 
-    public void setAccType(String accType) {
+    public void setAccType(int accType) {
         this.accType = accType;
     }
     
