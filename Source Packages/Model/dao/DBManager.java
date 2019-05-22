@@ -16,7 +16,7 @@ public class DBManager {
     }
 
     //Find student by ID in the database
-    public User findStudent(String username, String password) throws SQLException {
+    public User findUser(String username, String password) throws SQLException {
         String fetch = "select * from ISD.Users where ID = '" + username + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
@@ -41,14 +41,14 @@ public class DBManager {
     }
 
     //Check if a student exist in the database
-    public boolean checkStudent(String ID, String password) throws SQLException {
-        String fetch = "select * from ISDUSER.Students where ID = '" + ID + "' and password='" + password + "'";
+    public boolean checkUser(String username, String password) throws SQLException {
+        String fetch = "select * from ISD.Users where username = '" + username + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
-            String userID = rs.getString(1);
-            String userPass = rs.getString(4);
-            if (userID.equals(ID) && userPass.equals(password)) {
+            String userName = rs.getString(4);
+            String userPass = rs.getString(5);
+            if (userName.equals(username) && userPass.equals(password)) {
                 return true;
             }
         }
@@ -56,17 +56,17 @@ public class DBManager {
     }
 
     //Add a student-data into the database
-    public void addStudent(String userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, String userDOB, int acctype) throws SQLException {        
+    public void addUser(String userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, String userDOB, int acctype) throws SQLException {        
         st.executeUpdate("INSERT INTO ISD.Users " + "VALUES ('" + userID + "', '" + name + "', '" + userEmail + "', '" + userName + "', '" + userPass + "', '" + address + "', '" + userCity + "', '" + state + "', '" + country + "', '" + post + "', '" + userDOB + "', '" + acctype + "')");
     }
 
     //update a student details in the database
-    public void updateStudent(String ID, String email, String name, String password, String dob, String favcol) throws SQLException {
-        st.executeUpdate("UPDATE ISDUSER.Students SET EMAIL='" + email + "',NAME='" + name + "',PASSWORD='" + password + "',dob='" + dob + "',FAVORITECOLOR='" + favcol + "' WHERE ID='" + ID + "'");
+    public void updateUser(String userID, String name, String userEmail, String userPass, String address, String userCity, String state, String country, String post, String userDOB, int acctype) throws SQLException {
+        st.executeUpdate("UPDATE ISD.Users SET NAME='" + name + "',EMAIL='" + userEmail + "',PASSWORD='" + userPass + "',ADDRESS='" + address + "',CITY='" + userCity + "',STATE='" + state + "',COUNTRY='" + country + "',POST='" + post + "',DOB='" + userDOB + "' WHERE ID='" + userID + "'");
     }
     
     //delete a student from the database
-    public void deleteStudent(String ID) throws SQLException{
-        st.executeUpdate("DELETE FROM ISDUSER.Students WHERE ID='" + ID + "'");
+    public void deleteUser(String ID) throws SQLException{
+        st.executeUpdate("DELETE FROM ISD.Users WHERE ID='" + ID + "'");
     }
 }
