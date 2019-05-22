@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WAR : Archived">
+    <output-path>$PROJECT_DIR$/out/artifacts/WAR___Archived</output-path>
+    <root id="archive" name="WAR _ Archived.war">
+      <element id="module-source" name="ISD_Assignment" />
+    </root>
+  </artifact>
+</component>
