@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" href="ISD CSS.css">
-        <title>TBD Sign Up</title>
+        <title>Register</title>
         <link rel="stylesheet" href="isd1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
@@ -71,68 +71,45 @@
     </nav>
     <body>
           <!--TOP NAVIGATION BAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-    <a class="navbar-brand" href="#">TBD Movie Store</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <!--HOME,MOVIES,ABOUT-->
-        <div class="container-fluid">
-          <div class="row">
-            <div class="float-right">
-              <li class="nav-item">
-                <a class="nav-link" href="index.jsp">HOME</a>
-              </li>
-            </div>
-            <div class="col-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="movies.jsp">MOVIES</a>
-              </li>
-            </div>
-            <div class="col-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="about.jsp">ABOUT</a>
-              </li>
-            </div>
-          </div>
-        </div>
-
-        <!--LOGIN, SIGNUP-->
-        <div class="col-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">LOGIN</a>
-          </li>
-        </div>
-        <div class="col-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="signup.jsp">SIGN UP</a>
-          </li>
-        </div>
-
-        </ul>
-        </div>
-    </nav>
         
-        
-        <h1 class="signuptitle">REGISTER</h1>
+       
+        <center><h2>Register</h2></center>
             <form action="welcome.jsp">
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
-                            <th class="field" colspan="2"><input type="name" name="Name" placeholder="First name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name" placeholder="First name*"></th>                           
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="name" name="Name" placeholder="Last name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name" placeholder="Last name*"></th>                           
                         </tr>
                         <tr>
                             <th class="field" colspan="2"><input type="email" name="Email" placeholder="Email*"></th>
                         </tr>
                         <tr>
+                            <th class="field" colspan="2"><input type="text" name="Username" placeholder="Username*"></th>
+                        </tr>
+                        <tr>
                             <th class="field" colspan="2"><input type="password" name="Password" placeholder="Password*"></th>
-                        </tr>                       
+                        </tr>  
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="Address" placeholder="Street Address*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="City" placeholder="City*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="State" placeholder="State*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="Country" placeholder="Country*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="Postcode" placeholder="Postcode*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="date" name="DOB" placeholder="Date of Birth: dd/mm/yy"></th>
+                        </tr>
                         <tr>
                             <th><input type="checkbox" name="tos" value="Yes"></th>
                             <th class="checktext">I would like to receive regular emails about newly added movies.</th>          
