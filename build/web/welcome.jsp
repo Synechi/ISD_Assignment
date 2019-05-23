@@ -14,7 +14,7 @@
 <%@page import="Controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<html>
     <head>
        
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -59,17 +59,17 @@
                 <!--LOGIN, SIGNUP-->
                     <div class="col-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="login.jsp">LOGIN</a>
+                                <a class="nav-link" href="account.jsp">MY ACCOUNT</a>
                             </li>   
                         </div>
                         <div class="col-auto">
                             <li class="nav-item">
-                                    <a class="nav-link" href="signup.jsp">REGISTER</a>
+                                    <a class="nav-link" href="checkout.jsp">CHECKOUT</a>
                             </li>
                         </div>
                                         <div class="col-auto">
                             <li class="nav-item">
-                                    <a class="nav-link" href="checkout.jsp">CHECKOUT</a>
+                                    <a class="nav-link" href="logout.jsp">LOGOUT</a>
                             </li>
                         </div>
             </ul>          
@@ -79,7 +79,9 @@
     </nav>
 
        <%        
-        String name = request.getParameter("Name");
+        String fName = request.getParameter("Name");
+        String lName = request.getParameter("name2");
+        String name = fName + " " + lName;
         String email = request.getParameter("Email");
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
@@ -98,14 +100,13 @@
         User user = new User(key, name, email, username, password, address, city, state, country, postcode, dob, 1);
         session.setAttribute("user", user);
         DBManager manager = (DBManager)session.getAttribute("manager");
-        //System.out.print(name + email + username + password + address + city + state + country + postcode + dob + date);
         //manager.addUser(key, name, email, username, password, address, city, state, country, postcode, dob, 1);        
                                  %>
                                  
  
     <body>
         
-    <center> <h2>Hello <%=name%> </h2></center>
-      
+    <center> <h2>Welcome to the Online Movie Store <%=name%> </h2></center>
+    <center> <p> Click <a href="index.jsp"> here </a> to continue </p>
     </body>
-
+       </html>
