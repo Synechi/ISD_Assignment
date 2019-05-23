@@ -31,7 +31,7 @@ public class testDB {
             int key = (new Random()).nextInt(999999);
             int num = 1;
             
-            String ID = "" + key; 
+            
             System.out.print("email: ");
             String email = in.nextLine();
             System.out.print(" name: ");
