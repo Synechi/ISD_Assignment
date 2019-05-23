@@ -10,6 +10,8 @@
 <%@page import="java.util.Random"%>
 <%@page import="Model.User"%>
 <%@page import="Model.dao.DBManager"%>
+<%@page import="java.sql.*"%>
+<%@page import="Controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,9 +32,9 @@
         String country = request.getParameter("Country");
         String postcode = request.getParameter("Postcode");
         String dob = request.getParameter("DOB");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = formatter.parse(dob);
-        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+       // SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+       // Date date = formatter.parse(dob);
+       // java.sql.Date sqlDate = new java.sql.Date(date.getTime());
         
         
         int key = (new Random()).nextInt(999999);
