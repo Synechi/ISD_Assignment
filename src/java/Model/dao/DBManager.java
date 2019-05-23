@@ -10,9 +10,11 @@ import java.sql.*;
 public class DBManager {
 
     private Statement st;
+    private PreparedStatement ps;
 
     public DBManager(Connection conn) throws SQLException {
         st = conn.createStatement();
+        
     }
 
     //Find student by ID in the database
@@ -56,8 +58,10 @@ public class DBManager {
     }
 
     //Add a student-data into the database
-    public void addUser(String userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, String userDOB, int acctype) throws SQLException {        
-        st.executeUpdate("INSERT INTO ISD.Users " + "VALUES ('" + userID + "', '" + name + "', '" + userEmail + "', '" + userName + "', '" + userPass + "', '" + address + "', '" + userCity + "', '" + state + "', '" + country + "', '" + post + "', '" + userDOB + "', '" + acctype + "')");
+    public void addUser(int userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, String userDOB, int acctype) throws SQLException {        
+        st.executeUpdate("INSERT INTO OMSUSER.Users " + "VALUES (" + userID + ", '" + name + "', '" + userEmail + "', '" + userName + "', '" + userPass + "', '" + address + "', '" + userCity + "', '" + state + "', '" + country + "', '" + post + "', '" + userDOB + "', " + acctype + ")");
+     
+    
     }
 
     //update a student details in the database

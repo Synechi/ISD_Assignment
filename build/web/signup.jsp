@@ -5,6 +5,10 @@
 --%>
 
 
+<%@page import="Model.dao.DBManager"%>
+<%@page import="java.util.Random"%>
+<%@page import="Model.User"%>
+<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -74,14 +78,14 @@
         
        
         <center><h2>Register</h2></center>
-            <form action="welcome.jsp">
+            <form action="welcome.jsp" method="post">
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
                             <th class="field" colspan="2"><input type="text" name="Name" placeholder="First name*"></th>                           
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Name" placeholder="Last name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name2" placeholder="Last name*"></th>                           
                         </tr>
                         <tr>
                             <th class="field" colspan="2"><input type="email" name="Email" placeholder="Email*"></th>
@@ -111,7 +115,7 @@
                             <th class="field" colspan="2"><input type="date" name="DOB" placeholder="Date of Birth: dd/mm/yy"></th>
                         </tr>
                         <tr>
-                            <th><input type="checkbox" name="tos" value="Yes"></th>
+                            <th><input type="checkbox" name="tosEmail" value="Yes"></th>
                             <th class="checktext">I would like to receive regular emails about newly added movies.</th>          
                         </tr>
                         <tr>
@@ -120,7 +124,8 @@
                         </tr>
                         <tr>
                             <th>
-                            <button type="register" onclick="alert('One Moment')">Create My Account</button>                           
+                                <input class="button" type="submit" value="Register"> 
+                                
                             </th>
                         </tr>
                     </table>
