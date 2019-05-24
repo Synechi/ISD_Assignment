@@ -82,37 +82,43 @@
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Name" placeholder="First name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name" size="20" placeholder="First name*"></th>                           
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Name2" placeholder="Last name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name2" size="20" required placeholder="Last name*"></th>                           
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="email" name="Email" placeholder="Email*"></th>
+                            <th class="field" colspan="2"><input type="email" name="Email" size="50" required placeholder="Email*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Username" placeholder="Username*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Username" size="50" required placeholder="Username*"></th>
+                            <% DBManager manager = (DBManager)session.getAttribute("manager");
+                            if (manager.checkUsername(request.getParameter("Username")) == false)
+                            {                            
+                            %>
+                        <h4> Username already in us </h4>
+                        <% } %>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="password" name="Password" placeholder="Password*"></th>
+                            <th class="field" colspan="2"><input type="password" name="Password" size="50" required placeholder="Password*"></th>
                         </tr>  
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Address" placeholder="Street Address*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Address" size="100" required placeholder="Street Address*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="City" placeholder="City*"></th>
+                            <th class="field" colspan="2"><input type="text" name="City" size="50" required placeholder="City*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="State" placeholder="State*"></th>
+                            <th class="field" colspan="2"><input type="text" name="State" size="50" required placeholder="State*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Country" placeholder="Country*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Country" size="50" required placeholder="Country*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Postcode" placeholder="Postcode*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Postcode" size="4" required placeholder="Postcode*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="date" name="DOB" placeholder="Date of Birth: dd/mm/yy"></th>
+                            <th class="field" colspan="2"><input type="date" name="DOB" size="10" required placeholder="dd/mm/yyyy"></th>
                         </tr>
                         <tr>
                             <th><input type="checkbox" name="tosEmail" value="Yes"></th>
@@ -124,7 +130,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <input class="button" type="submit" value="Register"> 
+                                <input class="button" type="submit" value="Register" disabled> 
                                 
                             </th>
                         </tr>

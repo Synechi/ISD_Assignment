@@ -107,6 +107,6 @@
     <body>
         
     <center> <h2>Welcome to the Online Movie Store <%=name%> </h2></center>
-    <center> <p> Click <a href="index.jsp"> here </a> to continue </p>
+    <center> <h3> Click <a href="index.jsp"> here <a> to continue </h3>
     </body>
        </html>

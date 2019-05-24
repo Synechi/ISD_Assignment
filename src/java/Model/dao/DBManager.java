@@ -56,6 +56,16 @@ public class DBManager {
         }
         return false;
     }
+    public boolean checkUsername(String username) throws SQLException {
+        String fetch = "select * from ISD.Users where username = '" + username + "'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        if(rs.next() == false){
+            return true;
+            }
+        
+        return false;
+    }
 
     //Add a student-data into the database
     public void addUser(int userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, String userDOB, int acctype) throws SQLException {        

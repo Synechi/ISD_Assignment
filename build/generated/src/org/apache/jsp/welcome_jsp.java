@@ -60,7 +60,7 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
-      out.write("\n");
+      out.write("<html>\n");
       out.write("    <head>\n");
       out.write("       \n");
       out.write("         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
@@ -105,17 +105,17 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <!--LOGIN, SIGNUP-->\n");
       out.write("                    <div class=\"col-auto\">\n");
       out.write("                            <li class=\"nav-item\">\n");
-      out.write("                                <a class=\"nav-link\" href=\"login.jsp\">LOGIN</a>\n");
+      out.write("                                <a class=\"nav-link\" href=\"account.jsp\">MY ACCOUNT</a>\n");
       out.write("                            </li>   \n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col-auto\">\n");
       out.write("                            <li class=\"nav-item\">\n");
-      out.write("                                    <a class=\"nav-link\" href=\"signup.jsp\">REGISTER</a>\n");
+      out.write("                                    <a class=\"nav-link\" href=\"checkout.jsp\">CHECKOUT</a>\n");
       out.write("                            </li>\n");
       out.write("                        </div>\n");
       out.write("                                        <div class=\"col-auto\">\n");
       out.write("                            <li class=\"nav-item\">\n");
-      out.write("                                    <a class=\"nav-link\" href=\"checkout.jsp\">CHECKOUT</a>\n");
+      out.write("                                    <a class=\"nav-link\" href=\"logout.jsp\">LOGOUT</a>\n");
       out.write("                            </li>\n");
       out.write("                        </div>\n");
       out.write("            </ul>          \n");
@@ -126,7 +126,9 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("       ");
         
-        String name = request.getParameter("Name");
+        String fName = request.getParameter("Name");
+        String lName = request.getParameter("name2");
+        String name = fName + " " + lName;
         String email = request.getParameter("Email");
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
@@ -145,7 +147,6 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
         User user = new User(key, name, email, username, password, address, city, state, country, postcode, dob, 1);
         session.setAttribute("user", user);
         DBManager manager = (DBManager)session.getAttribute("manager");
-        //System.out.print(name + email + username + password + address + city + state + country + postcode + dob + date);
         //manager.addUser(key, name, email, username, password, address, city, state, country, postcode, dob, 1);        
                                  
       out.write("\n");
@@ -153,12 +154,12 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write(" \n");
       out.write("    <body>\n");
       out.write("        \n");
-      out.write("    <center> <h2>Hello ");
+      out.write("    <center> <h2>Welcome to the Online Movie Store ");
       out.print(name);
       out.write(" </h2></center>\n");
-      out.write("      \n");
+      out.write("    <center> <h3> Click <a href=\"index.jsp\"> here <a> to continue </h3>\n");
       out.write("    </body>\n");
-      out.write("\n");
+      out.write("       </html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
