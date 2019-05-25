@@ -17,7 +17,7 @@
        
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" href="ISD CSS.css">
-        <title>Welcome</title>
+        <title>My Account</title>
         <link rel="stylesheet" href="isd1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
@@ -76,6 +76,52 @@
         </div>        
     </nav>
     <body>
-        <h1>Hello World!</h1>
+        <% User user = (User) session.getAttribute("userEdit");  %>
+        <h1>Account Details:</h1>
+        <form action="account.jsp" method="POST">
+            <table>
+                
+                <tr><td>Name</td><td><input type="text" value="<%= user.getName()%>" name="name"></td></tr>
+                <tr><td>Email</td><td><input type="text" value="<%= user.getEmail()%>" name="email"></td></tr>  
+                <tr><td>Username</td><td><input type="text" value="<%= user.getUsername()%>" name="name"></td></tr>
+                <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password"></td></tr
+                <tr><td>Street Address</td><td><input type="text" value="<%= user.getAddress()%>" name="name"></td></tr>
+                <tr><td>City</td><td><input type="text" value="<%= user.getCity()%>" name="name"></td></tr>
+                <tr><td>State</td><td><input type="text" value="<%= user.getState()%>" name="name"></td></tr>
+                <tr><td>Country</td><td><input type="text" value="<%= user.getCountry()%>" name="name"></td></tr>
+                <tr><td>Postcode</td><td><input type="text" value="<%= user.getPostcode()%>" name="name"></td></tr>
+                <tr><td>Date of Birth</td><td><input type="date" value="<%= user.getDob()%>" name="dob"></td></tr> 
+                
+                <tr><td><input type="hidden" value="updated" name="updated"></td>
+                    <td><input class="button" type="submit" value="Edit Details"> 
+                        
+                        <button class="button" type="button" onclick="location.href = 'main.jsp'" > Home </button>
+                        <button class="button" type="button" onclick="location.href = 'deleteAction.jsp'" > Delete Account </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+               <% DBManager manager = (DBManager)session.getAttribute("manager"); 
+
+             String username = request.getParameter("Username");
+            String email = request.getParameter("Email");            
+            boolean validEmail = manager.checkEmail(email);
+            boolean validUsername = manager.checkUsername(username);
+            
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String state = request.getParameter("state");
+        String country = request.getParameter("country");
+        String postcode = request.getParameter("postcode");
+        String dob = request.getParameter("dob");
+                manager.updateUser(user.getID(), name, email, username, password, address, city, state, country, postcode, dob);
+                        
+                User userEdit = manager.findUserID(user.getID());
+
+                if (userEdit != null) {
+                    session.setAttribute("user", userEdit);
+                %>
     </body>
 </html>
