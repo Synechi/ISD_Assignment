@@ -10,6 +10,7 @@
 <%@page import="Model.User"%>
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,14 +76,14 @@
     </nav>
     <body>
           <!--TOP NAVIGATION BAR-->
-        
+       
        
         <center><h2>Register</h2></center>
-            <form action="welcome.jsp" method="post">
+            <form action="registerAction.jsp" method="post">
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Name" size="20" placeholder="First name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name" size="20" <% if (request.getParameter("Name") != null) { %> value="<%= request.getParameter("Name") %>" <% } %> placeholder="First name*"></th>                           
                         </tr>
                         <tr>
                             <th class="field" colspan="2"><input type="text" name="Name2" size="20" required placeholder="Last name*"></th>                           
@@ -92,12 +93,7 @@
                         </tr>
                         <tr>
                             <th class="field" colspan="2"><input type="text" name="Username" size="50" required placeholder="Username*"></th>
-                            <% DBManager manager = (DBManager)session.getAttribute("manager");
-                            if (manager.checkUsername(request.getParameter("Username")) == false)
-                            {                            
-                            %>
-                        <h4> Username already in us </h4>
-                        <% } %>
+                           
                         </tr>
                         <tr>
                             <th class="field" colspan="2"><input type="password" name="Password" size="50" required placeholder="Password*"></th>
@@ -115,10 +111,10 @@
                             <th class="field" colspan="2"><input type="text" name="Country" size="50" required placeholder="Country*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Postcode" size="4" required placeholder="Postcode*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Postcode" size="4" required placeholder="Postcode: 0000*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="date" name="DOB" size="10" required placeholder="dd/mm/yyyy"></th>
+                            <th class="field" colspan="2"><input type="date" name="DOB" size="10" required placeholder="DOB: dd/mm/yyyy"></th>
                         </tr>
                         <tr>
                             <th><input type="checkbox" name="tosEmail" value="Yes"></th>
@@ -129,12 +125,14 @@
                             <th class="checktext">Agree to TOS</th> 
                         </tr>
                         <tr>
-                            <th>
-                                <input class="button" type="submit" value="Register" disabled> 
-                                
+                            <th>                                
+                                <input class="button" type="submit" value="Register" name="submit" >                                 
                             </th>
+                            <th><p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
                         </tr>
                     </table>
             </form>  
+        
+        ${existErr = null}
     </body>
 </html>

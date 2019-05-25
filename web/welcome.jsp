@@ -79,34 +79,14 @@
     </nav>
 
        <%        
-        String fName = request.getParameter("Name");
-        String lName = request.getParameter("name2");
-        String name = fName + " " + lName;
-        String email = request.getParameter("Email");
-        String username = request.getParameter("Username");
-        String password = request.getParameter("Password");
-        String address = request.getParameter("Address");
-        String city = request.getParameter("City");
-        String state = request.getParameter("State");
-        String country = request.getParameter("Country");
-        String postcode = request.getParameter("Postcode");
-        String dob = request.getParameter("DOB");
-       // SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-       // Date date = formatter.parse(dob);
-       // java.sql.Date sqlDate = new java.sql.Date(date.getTime());      
-        
-        int key = (new Random()).nextInt(999999);         
-                              
-        User user = new User(key, name, email, username, password, address, city, state, country, postcode, dob, 1);
-        session.setAttribute("user", user);
-        DBManager manager = (DBManager)session.getAttribute("manager");
-        //manager.addUser(key, name, email, username, password, address, city, state, country, postcode, dob, 1);        
+        User user = (User) session.getAttribute("user");  
                                  %>
                                  
  
     <body>
         
-    <center> <h2>Welcome to the Online Movie Store <%=name%> </h2></center>
+    <center> <h2>Welcome to the Online Movie Store <%=user.getName()%> </h2></center>
     <center> <h3> Click <a href="index.jsp"> here <a> to continue </h3>
+    
     </body>
        </html>

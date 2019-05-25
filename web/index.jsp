@@ -5,6 +5,7 @@
   Time: 5:36 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@page import="Model.User"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.sql.*"%>
 <%@page import="Controller.*"%>
@@ -19,6 +20,10 @@
     <link rel="stylesheet" href="isd1.css">
 
   </head>
+  <% User user = (User) session.getAttribute("user");  
+     boolean userExists = false;
+     if (user != null) 
+     {userExists = true;}%>
 
   <!--TOP NAVIGATION BAR-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -55,19 +60,23 @@
                     </div>
                     
                 <!--LOGIN, SIGNUP-->
+                
                     <div class="col-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="login.jsp">LOGIN</a>
+                               <% if(userExists) { %> <a class="nav-link" href="account.jsp">MY ACCOUNT</a> <% } %>
+                               <% if (!userExists) { %> <a class="nav-link" href="login.jsp">LOGIN</a> <% } %>
                             </li>   
                         </div>
                         <div class="col-auto">
                             <li class="nav-item">
-                                    <a class="nav-link" href="signup.jsp">REGISTER</a>
+                                    <% if(userExists) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
+                               <% if (!userExists) { %> <a class="nav-link" href="signup.jsp">REGISTER</a> <% } %>
                             </li>
                         </div>
                                         <div class="col-auto">
                             <li class="nav-item">
-                                    <a class="nav-link" href="checkout.jsp">CHECKOUT</a>
+                                    <% if(userExists) { %> <a class="nav-link" href="logout.jsp">LOGOUT</a> <% } %>
+                               <% if (!userExists) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
                             </li>
                         </div>
             </ul>          
