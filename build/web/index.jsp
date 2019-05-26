@@ -5,6 +5,7 @@
   Time: 5:36 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@page import="Model.dao.DBManager"%>
 <%@page import="Model.User"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.sql.*"%>
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="isd1.css">
 
   </head>
-  <% User user = (User) session.getAttribute("user");  
+  <% User user = (User) session.getAttribute("user"); 
      boolean userExists = false;
      if (user != null) 
      {userExists = true;}%>

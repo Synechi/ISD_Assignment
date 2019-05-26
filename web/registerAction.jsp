@@ -64,7 +64,7 @@
                 response.sendRedirect("signup.jsp");  
                 return;
             }  
-            
+            //if postcode > 4 if dob format
 
 
         %>

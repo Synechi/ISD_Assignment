@@ -107,7 +107,7 @@ public class DBManager {
 
     //update a student details in the database
     public void updateUser(int userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, String userDOB) throws SQLException {
-        st.executeUpdate("UPDATE OMSUSER.Users SET NAME='" + name + "',EMAIL='" + userEmail + "',USERNAME='" + userName + "',PASSWORD='" + userPass + "',ADDRESS='" + address + "',CITY='" + userCity + "',STATE='" + state + "',COUNTRY='" + country + "',POST='" + post + "',DOB='" + userDOB + "' WHERE ID=" + userID + "");
+        st.executeUpdate("UPDATE OMSUSER.Users SET NAME='" + name + "',EMAIL='" + userEmail + "',USERNAME='" + userName + "',PASSWORD='" + userPass + "',STREET_ADDRESS='" + address + "',CITY='" + userCity + "',STATE='" + state + "',COUNTRY='" + country + "',POSTCODE='" + post + "',DATE_OF_BIRTH='" + userDOB + "' WHERE ID=" + userID + "");
     }
     
     //delete a student from the database
