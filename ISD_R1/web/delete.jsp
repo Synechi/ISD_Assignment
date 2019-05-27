@@ -1,8 +1,5 @@
-<%-- 
-    Document   : account
-    Created on : 24/05/2019, 12:00:06 AM
-    Author     : Ben
---%>
+
+
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Random"%>
@@ -11,19 +8,19 @@
 <%@page import="java.sql.*"%>
 <%@page import="Controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
     <head>
        
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" href="ISD CSS.css">
-        <title>My Account</title>
+        <title>Welcome</title>
         <link rel="stylesheet" href="isd1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-     <% User user = (User) session.getAttribute("user"); 
- boolean userMember = false;
+    <%        
+        User user = (User) session.getAttribute("user"); 
+boolean userMember = false;
      boolean userStaff = false;
          if (user.getAccType() == 1)
      {userMember = true;}
@@ -69,7 +66,7 @@
                                 <a class="nav-link" href="account.jsp">MY ACCOUNT</a>
                             </li>   
                         </div>
-                        <div class="col-auto">
+                         <div class="col-auto">
                             <li class="nav-item">
                                     <% if(userMember) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
                                
@@ -85,40 +82,21 @@
                     </div>
         </div>        
     </nav>
+
+     
+                                 
+ 
     <body>
-       
-    <center><h2>My Account</h2></center>
-        <form action="editAction.jsp" method="POST">
+        
+    <center> <h2>Delete Account</h2></center>
+    <center> <h3> Click "Delete" to proceed in account deletion. Click "Cancel" to return. </h3>
+        
             <center><table>
-                
-                <tr><td>Name</td><td><input type="text" value="<%= user.getName()%>" name="name" maxlegth="50"></td></tr>
-                <tr><td>Email</td><td><input type="email" value="<%= user.getEmail()%>" name="email" maxlength="50"></td></tr>  
-                <tr><td>Username</td><td><input type="text" value="<%= user.getUsername()%>" name="userName" maxlength="50"></td></tr>
-                <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password" maxlength="50"></td></tr
-                <tr><td>Street Address</td><td><input type="text" value="<%= user.getAddress()%>" name="address" maxlength="100"></td></tr>
-                <tr><td>City</td><td><input type="text" value="<%= user.getCity()%>" name="city" maxlength="50"></td></tr>
-                <tr><td>State</td><td><input type="text" value="<%= user.getState()%>" name="state" maxlength="50"></td></tr>
-                <tr><td>Country</td><td><input type="text" value="<%= user.getCountry()%>" name="country" maxlength="50"></td></tr>
-                <tr><td>Postcode</td><td><input type="text" value="<%= user.getPostcode()%>" name="postcode" maxlength="50"></td></tr>
-                <tr><td>Date of Birth</td><td><input type="date" value="<%= user.getDob()%>" name="dob" maxlength="10"></td></tr> 
-                
-                <tr><td><input type="hidden" value="updated" name="updated"></td>
-                    <td><input class="button" type="submit" value="Edit Details"> </td>
-                    <td> <p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p> </td>
-                
-<<<<<<< HEAD
-                <tr><td> <button class="button" type="button" onclick="location.href = 'deleteAction.jsp'" > Delete Account </button></td></tr>
-                        <tr><td><button class="button" type="button" onclick="location.href = 'index.jsp'" > Home </button></td></tr>
-=======
-                <tr><td> <button class="button" type="button" onclick="location.href='delete.jsp'" > Delete Account </button></td></tr>
-                 
-                
-                <tr><td><button class="button" type="button" onclick="location.href = 'index.jsp'" > Home </button></td></tr>
->>>>>>> master
-                    
-                </tr>
-                </table> </center>
-        </form>
-               
+                    <tr><td><button class="button" type="button" onClick="location.href='deleteAction.jsp'"> Delete</td>
+                        <td> <button class="button" type="button" onclick="location.href='account.jsp'"> Cancel </button></td>
+                    </tr>
+                </table>
+            </center>
+        
     </body>
-</html>
+       </html>
