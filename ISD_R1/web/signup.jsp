@@ -5,83 +5,119 @@
 --%>
 
 
+<%@page import="Model.dao.DBManager"%>
+<%@page import="java.util.Random"%>
+<%@page import="Model.User"%>
+<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" href="ISD CSS.css">
-        <title>TBD Sign Up</title>
+        <title>Register</title>
         <link rel="stylesheet" href="isd1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="nav">
+            
+        <a class="navbar-brand" href="index.jsp"><img src="http://i65.tinypic.com/19p84o.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+         
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+        <!--HOME,MOVIES,ABOUT-->
+        
+                    <div class="container-fluid">
+                        <div class="row">
+                                <div class="float-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.jsp">HOME</a>
+                                    </li>
+                                </div>
+                                <div class="col-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="movies.jsp">MOVIES</a>
+                                    </li>
+                                </div>
+                                <div class="col-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about.jsp">ABOUT</a>
+                                    </li>
+                                </div>
+                        </div>
+                    </div>
+                    
+                <!--LOGIN, SIGNUP-->
+                    <div class="col-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.jsp">LOGIN</a>
+                            </li>   
+                        </div>
+                        <div class="col-auto">
+                            <li class="nav-item">
+                                    <a class="nav-link" href="signup.jsp">REGISTER</a>
+                            </li>
+                        </div>
+                                        <div class="col-auto">
+                            <li class="nav-item">
+                                    <a class="nav-link" href="checkout.jsp">CHECKOUT</a>
+                            </li>
+                        </div>
+            </ul>          
+
+                    </div>
+        </div>        
+    </nav>
     <body>
           <!--TOP NAVIGATION BAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-    <a class="navbar-brand" href="#">TBD Movie Store</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <!--HOME,MOVIES,ABOUT-->
-        <div class="container-fluid">
-          <div class="row">
-            <div class="float-right">
-              <li class="nav-item">
-                <a class="nav-link" href="index.jsp">HOME</a>
-              </li>
-            </div>
-            <div class="col-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="movies.jsp">MOVIES</a>
-              </li>
-            </div>
-            <div class="col-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="about.jsp">ABOUT</a>
-              </li>
-            </div>
-          </div>
-        </div>
-
-        <!--LOGIN, SIGNUP-->
-        <div class="col-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">LOGIN</a>
-          </li>
-        </div>
-        <div class="col-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="signup.jsp">SIGN UP</a>
-          </li>
-        </div>
-
-        </ul>
-        </div>
-    </nav>
-        
-        
-        <h1 class="signuptitle">REGISTER</h1>
-            <form action="welcome.jsp">
+       
+       
+        <center><h2>Register</h2></center>
+            <form action="registerAction.jsp" method="post">
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
-                            <th class="field" colspan="2"><input type="name" name="Name" placeholder="First name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name" size="20" <% if (request.getParameter("Name") != null) { %> value="<%= request.getParameter("Name") %>" <% } %> placeholder="First name*"></th>                           
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="name" name="Name" placeholder="Last name*"></th>                           
+                            <th class="field" colspan="2"><input type="text" name="Name2" size="20" required placeholder="Last name*"></th>                           
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="email" name="Email" placeholder="Email*"></th>
+                            <th class="field" colspan="2"><input type="email" name="Email" size="50" required placeholder="Email*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="password" name="Password" placeholder="Password*"></th>
-                        </tr>                       
+                            <th class="field" colspan="2"><input type="text" name="Username" size="50" required placeholder="Username*"></th>
+                           
+                        </tr>
                         <tr>
-                            <th><input type="checkbox" name="tos" value="Yes"></th>
+                            <th class="field" colspan="2"><input type="password" name="Password" size="50" required placeholder="Password*"></th>
+                        </tr>  
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="Address" size="100" required placeholder="Street Address*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="City" size="50" required placeholder="City*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="State" size="50" required placeholder="State*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="Country" size="50" required placeholder="Country*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="text" name="Postcode" size="4" required placeholder="Postcode: 0000*"></th>
+                        </tr>
+                        <tr>
+                            <th class="field" colspan="2"><input type="date" name="DOB" size="10" required placeholder="DOB: dd/mm/yyyy"></th>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" name="tosEmail" value="Yes"></th>
                             <th class="checktext">I would like to receive regular emails about newly added movies.</th>          
                         </tr>
                         <tr>
@@ -89,11 +125,14 @@
                             <th class="checktext">Agree to TOS</th> 
                         </tr>
                         <tr>
-                            <th>
-                            <button type="register" onclick="alert('One Moment')">Create My Account</button>                           
+                            <th>                                
+                                <input class="button" type="submit" value="Register" name="submit" >                                 
                             </th>
+                            <th><p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
                         </tr>
                     </table>
             </form>  
+        
+        ${existErr = null}
     </body>
 </html>

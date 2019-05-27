@@ -9,7 +9,7 @@ package Model;
  * @author Ben
  */
 public class User {
-    private String ID;
+    private int ID;
     private String name;
     private String email;
     private String username;
@@ -22,7 +22,7 @@ public class User {
     private String dob;
     private int accType;
 
-    public User(String ID, String name, String email, String username, String password, String address, String city, String state, String country, String postcode, String dob, int accType) {
+    public User(int ID, String name, String email, String username, String password, String address, String city, String state, String country, String postcode, String dob, int accType) {
         this.ID = ID;
         this.name = name;
         this.email = email;
@@ -37,11 +37,11 @@ public class User {
         this.accType = accType;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
