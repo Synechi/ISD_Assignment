@@ -71,7 +71,7 @@
                 response.sendRedirect("signup.jsp");  
                 return;
             }  
-              if (!validPost) 
+              if (!validPost || postcode.length() != 4) 
              { session.setAttribute("existErr", "Postcode must be 4 digits");
                 response.sendRedirect("signup.jsp");  
                 return;}

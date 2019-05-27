@@ -1,8 +1,3 @@
-<%-- 
-    Document   : welcome
-    Created on : 23/05/2019, 8:02:30 PM
-    Author     : Ben
---%>
 
 
 <%@page import="java.util.Date"%>
@@ -23,7 +18,7 @@
         <link rel="stylesheet" href="isd1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-     <%        
+    <%        
         User user = (User) session.getAttribute("user"); 
 boolean userMember = false;
      boolean userStaff = false;
@@ -88,14 +83,20 @@ boolean userMember = false;
         </div>        
     </nav>
 
-      
-                                 %>
+     
                                  
  
     <body>
         
-    <center> <h2>Welcome to the Online Movie Store <%=user.getName()%> </h2></center>
-    <center> <h3> Click <a href="index.jsp"> here <a> to continue </h3>
-    
+    <center> <h2>Delete Account</h2></center>
+    <center> <h3> Click "Delete" to proceed in account deletion. Click "Cancel" to return. </h3>
+        
+            <center><table>
+                    <tr><td><button class="button" type="button" onClick="location.href='deleteAction.jsp'"> Delete</td>
+                        <td> <button class="button" type="button" onclick="location.href='account.jsp'"> Cancel </button></td>
+                    </tr>
+                </table>
+            </center>
+        
     </body>
        </html>

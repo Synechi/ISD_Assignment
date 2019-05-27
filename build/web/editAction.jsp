@@ -1,6 +1,5 @@
 <%@page import="java.text.ParseException"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.lang.Integer.parseInt(String)"%>
 <%@page import="Model.dao.*"%>
 <%@page import="Controller.*"%>
 <%@page import="java.util.*"%>
@@ -81,7 +80,7 @@
                 response.sendRedirect("account.jsp");  
                 return;
             }  
-             if (!validPost) 
+             if (!validPost || postcode.length() != 4) 
              { session.setAttribute("existErr", "Postcode must be 4 digits");
                 response.sendRedirect("account.jsp");  
                 return;}

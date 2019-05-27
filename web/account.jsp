@@ -106,8 +106,10 @@
                     <td><input class="button" type="submit" value="Edit Details"> </td>
                     <td> <p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p> </td>
                 
-                <tr><td> <button class="button" type="button" onclick="location.href = 'deleteAction.jsp'" > Delete Account </button></td></tr>
-                        <tr><td><button class="button" type="button" onclick="location.href = 'index.jsp'" > Home </button></td></tr>
+                <tr><td> <button class="button" type="button" onclick="location.href='delete.jsp'" > Delete Account </button></td></tr>
+                 
+                
+                <tr><td><button class="button" type="button" onclick="location.href = 'index.jsp'" > Home </button></td></tr>
                     
                 </tr>
                 </table> </center>
