@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/ISD_R1/src/java/Model/User.java</file>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/ISD_R1/src/java/Controller/testDB.java</file>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/ISD_R1/src/java/Controller/ConnServlet.java</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/index.jsp</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/registerAction.jsp</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/src/java/Model/User.java</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/logout.jsp</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/editAction.jsp</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/signup.jsp</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/movies.jsp</file>
         </group>
     </open-files>
 </project-private>

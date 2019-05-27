@@ -52,13 +52,6 @@
         }
         boolean validDob;
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        try { format.setLenient(false);
-        java.util.Date date = format.parse(dob);
-        validDob = true;
-        }
-        catch (ParseException e) {
-            validDob = false;
-        }
                
             
             
@@ -82,10 +75,6 @@
             }  
              if (!validPost || postcode.length() != 4) 
              { session.setAttribute("existErr", "Postcode must be 4 digits");
-                response.sendRedirect("account.jsp");  
-                return;}
-             if(!validDob)
-             { session.setAttribute("existErr", "Date must be in format: dd/mm/yyyy");
                 response.sendRedirect("account.jsp");  
                 return;}
               
