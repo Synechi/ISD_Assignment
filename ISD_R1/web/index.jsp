@@ -86,7 +86,7 @@
                                         <div class="col-auto">
                             <li class="nav-item">
                                     <% if(userExists) { %> <a class="nav-link" href="logout.jsp">LOGOUT</a> <% } %>
-                               <% if (!userExists) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
+                              <!-- <% if (!userExists) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %> -->
                             </li>
                         </div>
             </ul>          

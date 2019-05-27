@@ -1,17 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Evan
-  Date: 18/04/2019
-  Time: 1:31 PM
-  To change this template use File | Settings | File Templates.
+<%-- 
+    Document   : addMovie
+    Created on : 27/05/2019, 5:20:19 PM
+    Author     : Evan
 --%>
 <%@page import="Model.dao.DBManager"%>
 <%@page import="Model.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.sql.*"%>
 <%@page import="Controller.*"%>
+<!DOCTYPE html>
 <html>
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Movie Store</title>
@@ -33,10 +32,8 @@
      }
    
    %>
-
-<body>
-
-    <!--TOP NAVIGATION BAR-->
+    <body>
+        <!--TOP NAVIGATION BAR-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="nav">
             
@@ -96,6 +93,33 @@
                     </div>
         </div>        
     </nav>
-    <a href="addMovie.jsp">Add Movie</a>
-</body>
+        <center><h2>Add Movie</h2></center>
+        <form action="registerAddMovie.jsp" method="post">
+            <table>
+                <caption>* Indicates required.</caption>
+                    <tr>
+                        <th class="field" colspan="2"><input type="text" name="Title" size="50" required placeholder="Movie Title*"></th>                           
+                    </tr>
+                    <tr>
+                        <th class="field" colspan="2"><input type="date" name="ReleaseYr" required placeholder="Year of Release*"></th>                           
+                    </tr>
+                    <tr>
+                        <th class="field" colspan="2"><input type="text" name="Genre" size="50" required placeholder="Genre*"></th>                           
+                    </tr>
+                    <tr>
+                        <th class="field" colspan="2"><input type="number" name="Price" required placeholder="Price*"></th>                           
+                    </tr>
+                    <tr>
+                        <th class="field" colspan="2"><input type="number" name="Stock" required placeholder="Stock*"></th>                           
+                    </tr>
+                    <tr>
+                            <th>                                
+                                <input class="button" type="submit" value="AddMovie" name="submit" >                                 
+                            </th>
+                            <th><p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
+                    </tr>
+            </table>
+        </form>
+        ${existErr = null}
+    </body>
 </html>

@@ -50,8 +50,8 @@
         } catch (NumberFormatException e) {
             validPost = false;
         }
-        boolean validDob;
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        //boolean validDob;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                
             
             
@@ -79,7 +79,7 @@
                 return;}
               
              else {
-             java.util.Date date = format.parse(dob);
+         java.util.Date date = format.parse(dob);
          java.sql.Date sqlDate = new java.sql.Date(date.getTime());
          manager.updateUser(id, name, email, username, password, address, city, state, country, postcode, sqlDate); 
          user = manager.findUserID(id);

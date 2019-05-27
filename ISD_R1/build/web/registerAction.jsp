@@ -32,7 +32,7 @@
         String postcode = request.getParameter("Postcode");
         String dob = request.getParameter("DOB");
           
-            boolean validPost;
+        boolean validPost;
         try {Integer.parseInt(postcode);
         validPost = true;
         } catch (NumberFormatException e) {

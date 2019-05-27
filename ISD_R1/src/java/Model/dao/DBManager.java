@@ -97,12 +97,26 @@ public class DBManager {
         
         return false;
     }
+     
+    public boolean checkMovie(String title) throws SQLException {
+        String fetch = "select * from OMSUSER.Movies where title = '" + title + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        
+        if(rs.next() == false) {
+            return true;
+        }
+        return false;
+    }
 
     //Add a student-data into the database
     public void addUser(int userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, java.sql.Date userDOB, int acctype) throws SQLException {        
         st.executeUpdate("INSERT INTO OMSUSER.Users " + "VALUES (" + userID + ", '" + name + "', '" + userEmail + "', '" + userName + "', '" + userPass + "', '" + address + "', '" + userCity + "', '" + state + "', '" + country + "', '" + post + "', '" + userDOB + "', " + acctype + ")");
      
     
+    }
+    
+    public void addMovie(int id, String title, java.sql.Date relYr, String genre, double price , int stock, boolean status) throws SQLException {
+        st.executeUpdate("INSERT INTO OMSUSER.Movies VALUES("+id+", '"+title+"', '"+relYr+"', '"+genre+"', "+price+", "+stock+", "+status+")");
     }
 
     //update a student details in the database
