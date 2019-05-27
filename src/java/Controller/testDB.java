@@ -30,7 +30,7 @@ public class testDB {
             
             int key = (new Random()).nextInt(999999);
             int num = 1;
-            
+              
             
             System.out.print("email: ");
             String email = in.nextLine();
@@ -52,10 +52,13 @@ public class testDB {
             String password = in.nextLine();
             System.out.print("dob");
             String dob = in.nextLine();
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+java.util.Date date = format.parse(dob);
+java.sql.Date sqlDate = new java.sql.Date(date.getTime());
              
             System.out.print("Student favorite color: ");
             String favcol = in.nextLine();
-            db.addUser(key, name, email, username, password, address, city, state, country, postcode, dob, 1); //This method must be completed in DBManager class
+            db.addUser(key, name, email, username, password, address, city, state, country, postcode, sqlDate, 1); //This method must be completed in DBManager class
             System.out.println("Student is added to the database.");
             connector.closeConnection(); //Professional practice is to close connection to database once operations are finalized
             

@@ -82,16 +82,16 @@
         <form action="editAction.jsp" method="POST">
             <center><table>
                 
-                <tr><td>Name</td><td><input type="text" value="<%= user.getName()%>" name="name"></td></tr>
-                <tr><td>Email</td><td><input type="text" value="<%= user.getEmail()%>" name="email"></td></tr>  
-                <tr><td>Username</td><td><input type="text" value="<%= user.getUsername()%>" name="userName"></td></tr>
-                <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password"></td></tr
-                <tr><td>Street Address</td><td><input type="text" value="<%= user.getAddress()%>" name="address"></td></tr>
-                <tr><td>City</td><td><input type="text" value="<%= user.getCity()%>" name="city"></td></tr>
-                <tr><td>State</td><td><input type="text" value="<%= user.getState()%>" name="state"></td></tr>
-                <tr><td>Country</td><td><input type="text" value="<%= user.getCountry()%>" name="country"></td></tr>
-                <tr><td>Postcode</td><td><input type="text" value="<%= user.getPostcode()%>" name="postcode"></td></tr>
-                <tr><td>Date of Birth</td><td><input type="date" value="<%= user.getDob()%>" name="dob"></td></tr> 
+                <tr><td>Name</td><td><input type="text" value="<%= user.getName()%>" name="name" maxlegth="50"></td></tr>
+                <tr><td>Email</td><td><input type="email" value="<%= user.getEmail()%>" name="email" maxlength="50"></td></tr>  
+                <tr><td>Username</td><td><input type="text" value="<%= user.getUsername()%>" name="userName" maxlength="50"></td></tr>
+                <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password" maxlength="50"></td></tr
+                <tr><td>Street Address</td><td><input type="text" value="<%= user.getAddress()%>" name="address" maxlength="100"></td></tr>
+                <tr><td>City</td><td><input type="text" value="<%= user.getCity()%>" name="city" maxlength="50"></td></tr>
+                <tr><td>State</td><td><input type="text" value="<%= user.getState()%>" name="state" maxlength="50"></td></tr>
+                <tr><td>Country</td><td><input type="text" value="<%= user.getCountry()%>" name="country" maxlength="50"></td></tr>
+                <tr><td>Postcode</td><td><input type="text" value="<%= user.getPostcode()%>" name="postcode" maxlength="50"></td></tr>
+                <tr><td>Date of Birth</td><td><input type="date" value="<%= user.getDob()%>" name="dob" maxlength="10"></td></tr> 
                 
                 <tr><td><input type="hidden" value="updated" name="updated"></td>
                     <td><input class="button" type="submit" value="Edit Details"> </td>
