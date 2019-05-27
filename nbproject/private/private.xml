@@ -3,14 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Controller/ConnServlet.java</file>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Model/User.java</file>
             <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/login.jsp</file>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Model/dao/DBConnector.java</file>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Model/dao/DBManager.java</file>
-            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/welcome.jsp</file>
             <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/signup.jsp</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Model/User.java</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Controller/ConnServlet.java</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/editAction.jsp</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Model/dao/DBConnector.java</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/registerAction.jsp</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/account.jsp</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/delete.jsp</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Model/dao/DBManager.java</file>
             <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/src/java/Model/dao/DB.java</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/welcome.jsp</file>
+            <file>file:/C:/Users/Ben/Documents/GitHub/ISD_Assignment/web/deleteAction.jsp</file>
         </group>
     </open-files>
 </project-private>
