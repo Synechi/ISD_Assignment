@@ -37,15 +37,11 @@
         } catch (NumberFormatException e) {
             validPost = false;
         }
-        boolean validDob;
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        try { format.setLenient(false);
-        java.util.Date date = format.parse(dob);
-        validDob = true;
-        }
-        catch (ParseException e) {
-            validDob = false;
-        }
+        //boolean validDob;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+       
+        
+        
                  
                 
                  if (request.getParameter("tos") == null)
@@ -75,10 +71,10 @@
              { session.setAttribute("existErr", "Postcode must be 4 digits");
                 response.sendRedirect("signup.jsp");  
                 return;}
-             if(!validDob)
+            /* if(!validDob)
              { session.setAttribute("existErr", "Date must be in format: dd/mm/yyyy");
                 response.sendRedirect("signup.jsp");  
-                return;}
+                return;} */
               
             else{
                 
