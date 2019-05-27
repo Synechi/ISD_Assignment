@@ -1,3 +1,6 @@
+<%@page import="java.text.ParseException"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.lang.Integer.parseInt(String)"%>
 <%@page import="Model.dao.*"%>
 <%@page import="Controller.*"%>
 <%@page import="java.util.*"%>
@@ -42,16 +45,25 @@
         String postcode = request.getParameter("postcode");
         String dob = request.getParameter("dob");
         int id = user.getID();
+        boolean validPost;
+        try {Integer.parseInt(postcode);
+        validPost = true;
+        } catch (NumberFormatException e) {
+            validPost = false;
+        }
+        boolean validDob;
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try { format.setLenient(false);
+        java.util.Date date = format.parse(dob);
+        validDob = true;
+        }
+        catch (ParseException e) {
+            validDob = false;
+        }
                
             
-            if (validEmail && validUsername){
-             
-         manager.updateUser(id, name, email, username, password, address, city, state, country, postcode, dob); 
-         user = manager.findUserID(id);
-         session.setAttribute("user", user);
-         session.setAttribute("existErr", "");
-                response.sendRedirect("account.jsp"); 
-            }                
+            
+            
                 if (!validUsername && !validEmail){
                 session.setAttribute("existErr", "Username and Email already in use");
                 response.sendRedirect("account.jsp");     
@@ -69,6 +81,23 @@
                 response.sendRedirect("account.jsp");  
                 return;
             }  
+             if (!validPost) 
+             { session.setAttribute("existErr", "Postcode must be 4 digits");
+                response.sendRedirect("account.jsp");  
+                return;}
+             if(!validDob)
+             { session.setAttribute("existErr", "Date must be in format: dd/mm/yyyy");
+                response.sendRedirect("account.jsp");  
+                return;}
+              
+             else {
+             java.util.Date date = format.parse(dob);
+         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+         manager.updateUser(id, name, email, username, password, address, city, state, country, postcode, sqlDate); 
+         user = manager.findUserID(id);
+         session.setAttribute("user", user);
+         session.setAttribute("existErr", "");
+                response.sendRedirect("account.jsp"); }
             
 
 

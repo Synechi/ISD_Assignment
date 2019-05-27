@@ -22,9 +22,18 @@
 
   </head>
   <% User user = (User) session.getAttribute("user"); 
+     boolean userMember = false;
+     boolean userStaff = false;
      boolean userExists = false;
      if (user != null) 
-     {userExists = true;}%>
+     { userExists = true; 
+         if (user.getAccType() == 1)
+     {userMember = true;}
+     if (user.getAccType() == 2)
+     {userStaff = true;}
+     }
+   
+   %>
 
   <!--TOP NAVIGATION BAR-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -70,7 +79,7 @@
                         </div>
                         <div class="col-auto">
                             <li class="nav-item">
-                                    <% if(userExists) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
+                                    <% if(userMember) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
                                <% if (!userExists) { %> <a class="nav-link" href="signup.jsp">REGISTER</a> <% } %>
                             </li>
                         </div>

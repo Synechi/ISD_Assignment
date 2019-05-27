@@ -99,22 +99,22 @@
                             <th class="field" colspan="2"><input type="password" name="Password" size="50" required placeholder="Password*"></th>
                         </tr>  
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Address" size="100" required placeholder="Street Address*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Address" maxlength="100" required placeholder="Street Address*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="City" size="50" required placeholder="City*"></th>
+                            <th class="field" colspan="2"><input type="text" name="City" maxlength="50" required placeholder="City*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="State" size="50" required placeholder="State*"></th>
+                            <th class="field" colspan="2"><input type="text" name="State" maxlength="50" required placeholder="State*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Country" size="50" required placeholder="Country*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Country" maxlength="50" required placeholder="Country*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="text" name="Postcode" size="4" required placeholder="Postcode: 0000*"></th>
+                            <th class="field" colspan="2"><input type="text" name="Postcode" maxlength="4" required placeholder="Postcode: 0000*"></th>
                         </tr>
                         <tr>
-                            <th class="field" colspan="2"><input type="date" name="DOB" size="10" required placeholder="DOB: dd/mm/yyyy"></th>
+                            <th class="field" colspan="2"><input type="date" name="DOB" maxlength="10" required placeholder="DOB: dd/mm/yyyy"></th>
                         </tr>
                         <tr>
                             <th><input type="checkbox" name="tosEmail" value="Yes"></th>

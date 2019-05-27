@@ -1,3 +1,5 @@
+<%@page import="java.text.ParseException"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Model.dao.*"%>
 <%@page import="Controller.*"%>
 <%@page import="java.util.*"%>
@@ -12,7 +14,7 @@
     <body>
 
         <%
-            //Activate the database search-validate once DBManager functions are completed
+            
             DBManager manager = (DBManager)session.getAttribute("manager");
             String username = request.getParameter("Username");
             String email = request.getParameter("Email");            
@@ -28,17 +30,22 @@
         String country = request.getParameter("Country");
         String postcode = request.getParameter("Postcode");
         String dob = request.getParameter("DOB");
-            
-            if (validEmail && validUsername && request.getParameter("tos") != null){
-                
-         int key = (new Random()).nextInt(999999);       
-         
-        User user = new User(key, name, email, username, password, address, city, state, country, postcode, dob, 1);
-        session.setAttribute("user", user);       
-        manager.addUser(key, name, email, username, password, address, city, state, country, postcode, dob, 1);     
-                response.sendRedirect("welcome.jsp"); 
-            }
-         
+          
+            boolean validPost;
+        try {Integer.parseInt(postcode);
+        validPost = true;
+        } catch (NumberFormatException e) {
+            validPost = false;
+        }
+        boolean validDob;
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try { format.setLenient(false);
+        java.util.Date date = format.parse(dob);
+        validDob = true;
+        }
+        catch (ParseException e) {
+            validDob = false;
+        }
                  
                 
                  if (request.getParameter("tos") == null)
@@ -64,7 +71,26 @@
                 response.sendRedirect("signup.jsp");  
                 return;
             }  
-            //if postcode > 4 if dob format
+              if (!validPost) 
+             { session.setAttribute("existErr", "Postcode must be 4 digits");
+                response.sendRedirect("signup.jsp");  
+                return;}
+             if(!validDob)
+             { session.setAttribute("existErr", "Date must be in format: dd/mm/yyyy");
+                response.sendRedirect("signup.jsp");  
+                return;}
+              
+            else{
+                
+         int key = (new Random()).nextInt(999999); 
+         java.util.Date date = format.parse(dob);
+         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        User user = new User(key, name, email, username, password, address, city, state, country, postcode, sqlDate, 1);
+        session.setAttribute("user", user);       
+        manager.addUser(key, name, email, username, password, address, city, state, country, postcode, sqlDate, 1);     
+                response.sendRedirect("welcome.jsp"); 
+            }
+         
 
 
         %>
