@@ -9,7 +9,7 @@ package Model;
  * @author Ben
  */
 public class User {
-    private String ID;
+    private int ID;
     private String name;
     private String email;
     private String username;
@@ -19,10 +19,10 @@ public class User {
     private String state;
     private String country;
     private String postcode;
-    private String dob;
+    private java.sql.Date dob;
     private int accType;
 
-    public User(String ID, String name, String email, String username, String password, String address, String city, String state, String country, String postcode, String dob, int accType) {
+    public User(int ID, String name, String email, String username, String password, String address, String city, String state, String country, String postcode, java.sql.Date dob, int accType) {
         this.ID = ID;
         this.name = name;
         this.email = email;
@@ -37,11 +37,11 @@ public class User {
         this.accType = accType;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
@@ -117,11 +117,11 @@ public class User {
         this.postcode = postcode;
     }
 
-    public String getDob() {
+    public java.sql.Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(java.sql.Date dob) {
         this.dob = dob;
     }
 
