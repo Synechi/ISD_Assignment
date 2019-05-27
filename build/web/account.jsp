@@ -22,6 +22,14 @@
         <link rel="stylesheet" href="isd1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
+     <% User user = (User) session.getAttribute("user"); 
+ boolean userMember = false;
+     boolean userStaff = false;
+         if (user.getAccType() == 1)
+     {userMember = true;}
+     if (user.getAccType() == 2)
+     {userStaff = true;}
+     %>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="nav">
             
@@ -63,7 +71,8 @@
                         </div>
                         <div class="col-auto">
                             <li class="nav-item">
-                                    <a class="nav-link" href="checkout.jsp">CHECKOUT</a>
+                                    <% if(userMember) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
+                               
                             </li>
                         </div>
                                         <div class="col-auto">
@@ -77,7 +86,7 @@
         </div>        
     </nav>
     <body>
-        <% User user = (User) session.getAttribute("user");  %>
+       
     <center><h2>My Account</h2></center>
         <form action="editAction.jsp" method="POST">
             <center><table>
