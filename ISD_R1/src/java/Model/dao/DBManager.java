@@ -81,6 +81,48 @@ public class DBManager {
         }
         return movieList;
     }
+    
+    public ArrayList<Movie> searchMovies(String search) throws SQLException {
+        String fetch = "select * from OMSUSER.Movies where lower(title) LIKE lower('%"+search+"%') or lower(genre) LIKE lower('%"+search+"%')";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Movie> movieList = new ArrayList<>();
+        if (search.equals("")) {
+            return getMovies();
+        }
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String title = rs.getString(2);
+            java.sql.Date relYr = rs.getDate(3);
+            String genre = rs.getString(4);
+            double price = rs.getDouble(5);
+            int stock = rs.getInt(5);
+            boolean status = rs.getBoolean(6);
+            Movie movie = new Movie(id, title, relYr, genre, price, stock, status);
+            movieList.add(movie);
+        }
+        return movieList;
+    }
+    
+    public Movie findMovie(int search) throws SQLException {
+        String fetch = "select * FROM OMSUSER.Movies where id ="+search+"";
+        ResultSet rs = st.executeQuery(fetch);
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String title = rs.getString(2);
+            java.sql.Date relYr = rs.getDate(3);
+            String genre = rs.getString(4);
+            double price = rs.getDouble(5);
+            int stock = rs.getInt(5);
+            boolean status = rs.getBoolean(6);
+            Movie movie = new Movie(id, title, relYr, genre, price, stock, status);
+            return movie;
+        }
+        return null;
+    }
+    
+    public void rmvMovie(int search) throws SQLException {
+        st.executeUpdate("DELETE FROM OMSUSER.Movies WHERE id=" + search + "");
+    }
 
     //Check if a student exist in the database
     public boolean checkUser(String username, String password) throws SQLException {
@@ -147,5 +189,18 @@ public class DBManager {
     //delete a student from the database
     public void deleteUser(int ID) throws SQLException{
         st.executeUpdate("DELETE FROM OMSUSER.Users WHERE ID=" + ID + "");
+    }
+    
+    public void updateMovie (int id, String title, java.sql.Date relYr, String genre, double price , int stock, boolean status) throws SQLException {
+        st.executeUpdate("UPDATE OMSUSER.Movies SET title='" + title + "',releaseyear='" + relYr + "',genre='" + genre + "',price=" + price + ",stock=" + stock + ",status=" + status + " WHERE id=" + id + "");
+    }
+    
+    public int getMovieID(String title) throws SQLException {
+        String fetch = "select * FROM OMSUSER.Movies where title ="+title+"";
+        ResultSet rs = st.executeQuery(fetch);
+        while (rs.next()) {
+            return rs.getInt(1);
+        }
+        return 0;
     }
 }

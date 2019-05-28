@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Model;
-import java.text.DecimalFormat;
 import java.sql.Date;
 
 /**
@@ -19,8 +18,7 @@ public class Movie {
     private double price;
     private int stock;
     private boolean status;
-    private static DecimalFormat format = new DecimalFormat("#.##");
-
+    
     public Movie(int ID, String title, Date releaseyr, String genre, double price, int stock, boolean status) {
         this.ID = ID;
         this.title = title;

@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Movie Store</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="isd1.css">
 </head>
@@ -47,8 +48,8 @@
                 <nav>
                     <div class="navlist">
                         <ul>
-                            <li><a href="index.jsp" title="Home" id="active"> Home </a></li>	
-                            <li><a href="movies.jsp" title="Movies"> Movies </a></li>
+                            <li><a href="index.jsp" title="Home" > Home </a></li>	
+                            <li><a href="movies.jsp" title="Movies" id="active"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details"> User Details </a></li>
@@ -68,16 +69,33 @@
 <body>
                                 
                         <!-- Table of Movies -->
+                        <center><h2>List of Movies</h2></center>
                         <div >
                             <table style="overflow-x: auto; overflow-y: auto;" class="movieTable">
                                 <tr>
+                                    <form action="searchMovie.jsp" method="post">
+                                        <th colspan="6">
+                                            <input type="text" placeholder="Search..." name="search">
+                                        </th>
+                                        <th colspan="1">
+                                            <button type="submit"><i class="fa fa-search"></i></button>
+                                        </th>
+                                    </form>
+
+                                </tr>
+                                <tr>
                                     <th>Movie Title</th>
-                                    <th>Year of Release</th>
+                                    <th>Movie Release Date</th>
                                     <th>Genre</th>
                                     <th>Price</th>
                                     <th>Stock</th>
                                 </tr>
-                                <% for (Movie movie : movieList) {
+                                <% if(movieList.size() == 0) { %>
+                                <tr>
+                                    <td style="text-align: center" colspan="5">No Movies Currently Avaliable!</td>
+                                </tr>
+                                <%} else { 
+                                            for (Movie movie : movieList) {
                                 %> 
                                 <tr>
                                     <td> <%=movie.getTitle() %> </td>
@@ -85,13 +103,28 @@
                                     <td> <%=movie.getGenre() %> </td>
                                     <td> $<%=movie.getFormPrice() %> </td>
                                     <td> <%=movie.getStock() %> </td>
+                                    <td> 
+                                        <form action="editMovie.jsp" method="post">
+                                            <input type="hidden" name="movieID" value="<%=movie.getID() %>"/>
+                                            <button type="submit"><i class="fas fa-cog"></i></button>
+                                        </form>
+                                    </td>
+                                    <td> 
+                                        <form action="rmvMovieAction.jsp" method="post">
+                                            <input type="hidden" name="movieID" value="<%=movie.getID() %>"/>
+                                            <button type="submit"><i class="fas fa-minus"></i></i></button>
+                                        </form>
+                                    </td>
                                 </tr> 
                                 <%
-                                }
+                                            }
+                                        }
                                 %> <%%>
                             </table>
                         </div>
-                                
-    <a href="addMovie.jsp">Add Movie</a>
+                            
+    <div class="movieListEdit">
+        <a href="addMovie.jsp"><img src="source/plus.svg" alt="Add Movie" class="movieListIcon"></a>
+    </div>                           
 </body>
 </html>
