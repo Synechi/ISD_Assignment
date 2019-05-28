@@ -27,9 +27,14 @@
         boolean status = false;
         boolean validStock = false;
         boolean validPrice = false;
-        boolean validTitle = manager.checkMovie(title);
+        boolean validTitle = false;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         
+        String oldMovieTitle = request.getParameter("movieTitle");
+        if (title.equals(oldMovieTitle) || manager.checkMovie(title)) {
+            validTitle = true;
+        }
+
         if (stock >= 0 ) {
             validStock = true;
         }
@@ -42,17 +47,17 @@
         
         if (!validTitle) {
             session.setAttribute("existErr", "Movie already in catalogue!");
-            response.sendRedirect("editMovie.jsp");      
+            response.sendRedirect("movies.jsp");      
             return;
         }
         if (!validStock) {
             session.setAttribute("existErr", "Please enter a stock amount greater than or equal to 0.");
-            response.sendRedirect("editMovie.jsp");      
+            response.sendRedirect("movies.jsp");      
             return;
         }
         if (!validPrice) {
             session.setAttribute("existErr", "Please enter a price amount greater than 0.");
-            response.sendRedirect("editMovie.jsp");      
+            response.sendRedirect("movies.jsp");      
             return;
         }
         else{ 
@@ -60,7 +65,9 @@
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
             int id = Integer.parseInt(request.getParameter("movieID"));
+            Movie movie = new Movie(id, title, sqlDate, genre, price, stock, status);
             manager.updateMovie(id, title, sqlDate, genre, price, stock, status);
+            request.setAttribute("movieEdit", movie);
             response.sendRedirect("movies.jsp");
         }
         

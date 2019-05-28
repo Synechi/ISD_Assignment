@@ -74,8 +74,8 @@ public class DBManager {
             java.sql.Date relYr = rs.getDate(3);
             String genre = rs.getString(4);
             double price = rs.getDouble(5);
-            int stock = rs.getInt(5);
-            boolean status = rs.getBoolean(6);
+            int stock = rs.getInt(6);
+            boolean status = rs.getBoolean(7);
             Movie movie = new Movie(id, title, relYr, genre, price, stock, status);
             movieList.add(movie);
         }
@@ -95,8 +95,8 @@ public class DBManager {
             java.sql.Date relYr = rs.getDate(3);
             String genre = rs.getString(4);
             double price = rs.getDouble(5);
-            int stock = rs.getInt(5);
-            boolean status = rs.getBoolean(6);
+            int stock = rs.getInt(6);
+            boolean status = rs.getBoolean(7);
             Movie movie = new Movie(id, title, relYr, genre, price, stock, status);
             movieList.add(movie);
         }
@@ -112,8 +112,8 @@ public class DBManager {
             java.sql.Date relYr = rs.getDate(3);
             String genre = rs.getString(4);
             double price = rs.getDouble(5);
-            int stock = rs.getInt(5);
-            boolean status = rs.getBoolean(6);
+            int stock = rs.getInt(6);
+            boolean status = rs.getBoolean(7);
             Movie movie = new Movie(id, title, relYr, genre, price, stock, status);
             return movie;
         }

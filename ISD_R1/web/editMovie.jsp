@@ -81,6 +81,7 @@
                     <tr>
                             <th>                                
                                 <input type="hidden" name="movieID" value="<%=movie.getID() %>"/>
+                                <input type="hidden" name="movieTitle" value="<%=movie.getTitle() %>"/>
                                 <input class="button" type="submit" value="Edit Movie" name="submit" >                                 
                             </th>
                             <th><p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
