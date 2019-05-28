@@ -1,6 +1,8 @@
 package Model.dao;
 
-import Model.User;
+import java.util.ArrayList;
+import java.sql.Date;
+import Model.*;
 import java.sql.*;
 
 /**
@@ -60,6 +62,24 @@ public class DBManager {
             }
         }
         return null;
+    }
+    
+    public ArrayList<Movie> getMovies() throws SQLException {
+        String fetch = "select * from OMSUSER.Movies";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Movie> movieList = new ArrayList<>();
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String title = rs.getString(2);
+            java.sql.Date relYr = rs.getDate(3);
+            String genre = rs.getString(4);
+            double price = rs.getDouble(5);
+            int stock = rs.getInt(5);
+            boolean status = rs.getBoolean(6);
+            Movie movie = new Movie(id, title, relYr, genre, price, stock, status);
+            movieList.add(movie);
+        }
+        return movieList;
     }
 
     //Check if a student exist in the database
