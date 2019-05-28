@@ -41,7 +41,7 @@
                 <nav>
                     <div class="navlist">
                         <ul>
-                            <li><a href="index.jsp" title="Home" id="active"> Home </a></li>	
+                            <li><a href="index.jsp" title="Home"> Home </a></li>	
                             <li><a href="movies.jsp" title="Movies"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
@@ -59,27 +59,27 @@
             </div>
     </header>
         <center><h2>Add Movie</h2></center>
-        <form action="registerAddMovie.jsp" method="post">
-            <table>
+        <form action="addMovieAction.jsp" method="post">
+            <table class="addMovTable">
                 <caption>* Indicates required.</caption>
                     <tr>
-                        <th class="field" colspan="2"><input type="text" name="Title" size="50" required placeholder="Movie Title*"></th>                           
+                        <th class="field" colspan="2">Title: <input type="text" name="Title" size="50" required placeholder="Movie Title*"></th>                           
                     </tr>
                     <tr>
-                        <th class="field" colspan="2"><input type="date" name="ReleaseYr" required placeholder="Year of Release*"></th>                           
+                        <th class="field" colspan="2">Movie Release Date: <input type="date" name="ReleaseYr" required placeholder="Year of Release*"></th>                           
                     </tr>
                     <tr>
-                        <th class="field" colspan="2"><input type="text" name="Genre" size="50" required placeholder="Genre*"></th>                           
+                        <th class="field" colspan="2">Genre: <input type="text" name="Genre" size="50" required placeholder="Genre*"></th>                           
                     </tr>
                     <tr>
-                        <th class="field" colspan="2"><input type="number" name="Price" required placeholder="Price*" step="0.01"></th>                           
+                        <th class="field" colspan="2">Price: <input type="number" name="Price" required placeholder="Price*" step="0.01"></th>                           
                     </tr>
                     <tr>
-                        <th class="field" colspan="2"><input type="number" name="Stock" required placeholder="Stock*"></th>                           
+                        <th class="field" colspan="2">Stock: <input type="number" name="Stock" required placeholder="Stock*"></th>                           
                     </tr>
                     <tr>
                             <th>                                
-                                <input class="button" type="submit" value="AddMovie" name="submit" >                                 
+                                <input class="button" type="submit" value="Add Movie" name="submit" >                                 
                             </th>
                             <th><p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
                     </tr>

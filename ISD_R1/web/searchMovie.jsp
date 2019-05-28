@@ -39,7 +39,7 @@
 
      //Movie List
      
-     ArrayList<Movie> movieList = manager.getMovies();
+     ArrayList<Movie> movieList = manager.searchMovies(request.getParameter("search"));
    %>
 
    <header class="clearfix">
@@ -92,7 +92,7 @@
                                 </tr>
                                 <% if(movieList.size() == 0) { %>
                                 <tr>
-                                    <td style="text-align: center" colspan="5">No Movies Currently Avaliable!</td>
+                                    <td style="text-align: center" colspan="5">No Movies Matching Search!</td>
                                 </tr>
                                 <%} else { 
                                             for (Movie movie : movieList) {

@@ -40,7 +40,7 @@
                 <nav>
                     <div class="navlist">
                         <ul>
-                            <li><a href="index.jsp" title="Home" id="active"> Home </a></li>	
+                            <li><a href="index.jsp" title="Home"> Home </a></li>	
                             <li><a href="movies.jsp" title="Movies"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>

@@ -155,7 +155,7 @@ button {
     align-content: center;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 50%;
 }
 
 /*General Header Customisation*/
@@ -284,4 +284,33 @@ a#active::after {
     height: auto;
     width: 100%;
 
+}
+
+.addMovTable {
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.movieListIcon {
+    width: 2%;
+    margin: 2px;
+}
+
+.movieListEdit {
+    text-align: center;
+}
+
+.search-container {
+    display: block;
+    width:50%;
+    text-align: center;
+}
+
+.search-container input[type=text] {
+    width: 90%;
+}
+
+.search-container input[type=submit] {
+    width: 10%;
 }
