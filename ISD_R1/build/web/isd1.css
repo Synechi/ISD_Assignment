@@ -150,3 +150,138 @@ th {
 button {
     align-content: center;
 }
+
+.movieTable {
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+/*General Header Customisation*/
+
+.navigation 	{
+    width: 98%;
+    margin: 0px auto;
+}
+
+header {
+    background: #000000;
+    font-family: 'Open Sans', sans-serif;
+    outline: solid;
+    outline-color: #D3D3D3;
+    margin-bottom: 20px;
+}
+
+/*Clearfix for header*/
+
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/*Webpage Icon Customisation*/
+
+.title {
+    float: left;
+    padding: 5px;
+    color: #3c3c3c;
+    width: auto;
+    max-height: 50px;
+    display: block;
+}
+
+@media screen and (max-width:1020px) {
+    .title {
+        padding: 2.5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*Navigation Link Customisation*/
+
+nav ul {
+    margin: 0 auto;
+    padding: 0;
+    float: right;
+    list-style-type: none;
+    display: table;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 50px 0 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: relative;
+    vertical-align: middle;
+}
+
+@media screen and (max-width:1020px) {
+    nav ul {
+        float: none;
+        text-align: center;
+
+    }
+}
+
+@media screen and (max-width:1020px) {
+    nav li {
+        margin: 0px 10px;
+        padding-bottom: 7px;
+        text-align: center;
+    }
+}
+
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+
+@media screen and (max-width:405px) {
+        nav li {
+        margin: 0px 5px;
+        }
+    }
+
+
+/*Link Hover Animation*/
+
+nav a:hover {
+    color: #D3D3D3;
+    text-decoration: none;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: #FFFFFF;
+    position: absolute;
+    transition: all ease-in-out 150ms;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+a#active::after {
+    width: 100%;
+}
+
+/*Header Image Customisation*/
+
+.headimg {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+
+}

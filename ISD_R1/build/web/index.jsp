@@ -25,6 +25,7 @@
      boolean userMember = false;
      boolean userStaff = false;
      boolean userExists = false;
+     boolean itemInCart = false;
      if (user != null) 
      { userExists = true; 
          if (user.getAccType() == 1)
@@ -36,64 +37,29 @@
    %>
 
   <!--TOP NAVIGATION BAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="nav">
-            
-        <a class="navbar-brand" href="index.jsp"><img src="http://i65.tinypic.com/19p84o.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-         
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-        <!--HOME,MOVIES,ABOUT-->
-        
-                    <div class="container-fluid">
-                        <div class="row">
-                                <div class="float-right">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="index.jsp">HOME</a>
-                                    </li>
-                                </div>
-                                <div class="col-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="movies.jsp">MOVIES</a>
-                                    </li>
-                                </div>
-                                <div class="col-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="about.jsp">ABOUT</a>
-                                    </li>
-                                </div>
-                        </div>
+    <header class="clearfix">
+            <div class="navigation">
+                <a href="index.jsp"><img src="source/logo.png" alt="OMS" class="title"></a>
+                <nav>
+                    <div class="navlist">
+                        <ul>
+                            <li><a href="index.jsp" title="Home" id="active"> Home </a></li>	
+                            <li><a href="movies.jsp" title="Movies"> Movies </a></li>
+                            <% if(userExists) {%>
+                            <li><a href="logout.jsp" title="Logout"> Logout </a></li>
+                            <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <%} else { %>
+                            <li><a href="login.jsp" title="Login"> Login </a></li>
+                            <li><a href="signup.jsp" title="Reigster"> Register </a></li>
+                            <%} %>
+                            <% if (itemInCart) { %>
+                            <li><a href="index.jsp" title="Checkout"> Checkout </a></li>
+                            <%} %>
+                        </ul>
                     </div>
-                    
-                <!--LOGIN, SIGNUP-->
-                
-                    <div class="col-auto">
-                            <li class="nav-item">
-                               <% if(userExists) { %> <a class="nav-link" href="account.jsp">MY ACCOUNT</a> <% } %>
-                               <% if (!userExists) { %> <a class="nav-link" href="login.jsp">LOGIN</a> <% } %>
-                            </li>   
-                        </div>
-                        <div class="col-auto">
-                            <li class="nav-item">
-                                    <% if(userMember) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
-                               <% if (!userExists) { %> <a class="nav-link" href="signup.jsp">REGISTER</a> <% } %>
-                            </li>
-                        </div>
-                                        <div class="col-auto">
-                            <li class="nav-item">
-                                    <% if(userExists) { %> <a class="nav-link" href="logout.jsp">LOGOUT</a> <% } %>
-                               <% if (!userExists) { %> <a class="nav-link" href="checkout.jsp">CHECKOUT</a> <% } %>
-                            </li>
-                        </div>
-            </ul>          
-
-                    </div>
-        </div>        
-    </nav>
+                </nav>
+            </div>
+    </header>
 
 
 

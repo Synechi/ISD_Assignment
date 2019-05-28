@@ -26,13 +26,14 @@ public class ConnServlet extends HttpServlet {
     private DBManager manager;
     private Connection conn;
     
+    
     @Override //Create and instance of DBConnector for the deployment session
     public void init() {
         try {
             db = new DBConnector();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }       
+        }   
     }
   
     @Override //Add the DBManager instance to the session 

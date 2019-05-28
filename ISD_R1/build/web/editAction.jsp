@@ -51,7 +51,6 @@
             validPost = false;
         }
         //boolean validDob;
-
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                
             
