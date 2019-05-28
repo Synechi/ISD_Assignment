@@ -27,9 +27,14 @@
         boolean status = false;
         boolean validStock = false;
         boolean validPrice = false;
-        boolean validTitle = manager.checkMovie(title);
+        boolean validTitle = false;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         
+        String oldMovieTitle = request.getParameter("movieTitle");
+        if (title == oldMovieTitle) {
+            validTitle = true;
+        }
+
         if (stock >= 0 ) {
             validStock = true;
         }
@@ -42,17 +47,17 @@
         
         if (!validTitle) {
             session.setAttribute("existErr", "Movie already in catalogue!");
-            response.sendRedirect("editMovie.jsp");      
+            response.sendRedirect("movies.jsp");      
             return;
         }
         if (!validStock) {
             session.setAttribute("existErr", "Please enter a stock amount greater than or equal to 0.");
-            response.sendRedirect("editMovie.jsp");      
+            response.sendRedirect("movies.jsp");      
             return;
         }
         if (!validPrice) {
             session.setAttribute("existErr", "Please enter a price amount greater than 0.");
-            response.sendRedirect("editMovie.jsp");      
+            response.sendRedirect("movies.jsp");      
             return;
         }
         else{ 

@@ -60,9 +60,6 @@
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
             int id = (new Random()).nextInt(999999);
-
-            Movie movie = new Movie(id, title, sqlDate, genre, price, stock, status);
-            session.setAttribute(title, movie);
             manager.addMovie(id, title, sqlDate, genre, price, stock, status);
             response.sendRedirect("movies.jsp");
         }
