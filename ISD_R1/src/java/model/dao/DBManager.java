@@ -39,7 +39,7 @@ public class DBManager {
     }
     //Find student by ID in the database
     public User findUser(String username, String password) throws SQLException {
-        String fetch = "select * from ISD.Users where username = '" + username + "' and password='" + password + "'";
+        String fetch = "select * from OMSUSER.Users where username = '" + username + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -64,7 +64,7 @@ public class DBManager {
 
     //Check if a student exist in the database
     public boolean checkUser(String username, String password) throws SQLException {
-        String fetch = "select * from ISD.Users where username = '" + username + "' and password='" + password + "'";
+        String fetch = "select * from OMSUSER.Users where username = '" + username + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
