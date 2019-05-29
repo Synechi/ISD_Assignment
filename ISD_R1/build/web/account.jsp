@@ -79,6 +79,7 @@
                 <tr><td>Date of Birth</td><td><input type="date" value="<%= user.getDob()%>" name="dob" maxlength="10"></td></tr> 
                 
                 <tr><td><input type="hidden" value="updated" name="updated"></td>
+                    <td><input type="id" value="<%= user.getID()%>"</td>
                     <td><input class="button" type="submit" value="Edit Details"> </td>
                     <td> <p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p> </td>
                 
@@ -87,9 +88,9 @@
                 
                 <tr><td><button class="button" type="button" onclick="location.href = 'index.jsp'" > Home </button></td></tr>
                     
+                <tr><td><button class="button" type="button" onclick="location.href = 'showLog.jsp'" > View Access Logs </button></td></tr>
                 </tr>
                 </table> </center>
         </form>
-               
     </body>
 </html>

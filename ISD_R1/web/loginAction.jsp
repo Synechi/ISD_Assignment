@@ -4,6 +4,8 @@
     Author     : emily
 --%>
 
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="Model.dao.DBManager"%>
 <%@page import="Model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,6 +28,11 @@
                 response.sendRedirect("login.jsp");      
         }
         else {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	LocalDateTime now = LocalDateTime.now();
+        String desc="";
+         desc= user.getName() + " logged in at "+ String.valueOf(dtf.format(now));
+            manager.addLog(desc, user.getID());
         session.setAttribute("user", user);           
                 response.sendRedirect("welcome.jsp"); 
         }
