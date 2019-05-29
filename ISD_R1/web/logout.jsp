@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+                <%           
+            session.invalidate();
+        %>
+        You have been logged out.
+        Click here to go to<a href="login.jsp" title="Login" id="active"> Login </a>page.
+   
     </body>
 </html>

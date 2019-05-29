@@ -40,17 +40,17 @@ public class DBManager {
         return null;
     }
     //Find student by ID in the database
-    public User findUser(String username, String password) throws SQLException {
-        String fetch = "select * from ISD.Users where username = '" + username + "' and password='" + password + "'";
+    public User findUser(String email, String password) throws SQLException {
+        String fetch = "select * from OMSUSER.Users where email = '" + email + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
-            String userName = rs.getString(4);
+            String userEmail = rs.getString(3);
             String userPass = rs.getString(5);
-            if (userName.equals(username) && userPass.equals(password)) {
+            if (userEmail.equals(email) && userPass.equals(password)) {
                 int userID = rs.getInt(1);
                 String name = rs.getString(2);
-                String userEmail = rs.getString(3);
+                String user = rs.getString(4);
                 String address = rs.getString(6);
                 String userCity = rs.getString(7);
                 String state = rs.getString(8);
@@ -58,7 +58,7 @@ public class DBManager {
                 String post = rs.getString(10);
                 java.sql.Date dob = rs.getDate(11);
                 int acctype = rs.getInt(12);
-                return new User(userID, name, userEmail, userName, userPass, address, userCity, state, country, post, dob, acctype);
+                return new User(userID, name, userEmail, user, userPass, address, userCity, state, country, post, dob, acctype);
             }
         }
         return null;
