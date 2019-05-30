@@ -99,10 +99,7 @@
                         <tr>
                             <th class="field" colspan="2"><input type="date" name="DOB" maxlength="10" required placeholder="DOB: dd/mm/yyyy"></th>
                         </tr>
-                        <tr>
-                            <th><input type="checkbox" name="tosEmail" value="Yes"></th>
-                            <th class="checktext">I would like to receive regular emails about newly added movies.</th>          
-                        </tr>
+                        
                         <tr>
                             <th><input type="checkbox" name="tos" value="Agree to TOS"></th>
                             <th class="checktext">Agree to TOS</th> 
