@@ -1,8 +1,10 @@
 <%-- 
-    Document   : account
-    Created on : 24/05/2019, 12:00:06 AM
-    Author     : Ben
+    Document   : orderHistory
+    Created on : 30/05/2019, 1:50:33 PM
+    Author     : ivycheung
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Random"%>
@@ -10,15 +12,15 @@
 <%@page import="Model.dao.DBManager"%>
 <%@page import="java.sql.*"%>
 <%@page import="Controller.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
 <html>
     <head>
        
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" href="ISD CSS.css">
-        <title>My Account</title>
+        <title>Order History</title>
         <link rel="stylesheet" href="isd1.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -35,10 +37,9 @@
      if (user.getAccType() == 2)
      {userStaff = true;}
      }
-   
    %>
-
-  <!--TOP NAVIGATION BAR-->
+    
+      <!--TOP NAVIGATION BAR-->
     <header class="clearfix">
             <div class="navigation">
                 <a href="index.jsp"><img src="source/logo.png" alt="OMS" class="title"></a>
@@ -61,35 +62,39 @@
                 </nav>
             </div>
     </header>
-    <body>
-       
-    <center><h2>My Account</h2></center>
-        <form action="editAction.jsp" method="POST">
-            <center><table>
-                
-                <tr><td>Name</td><td><input type="text" value="<%= user.getName()%>" name="name" maxlegth="50"></td></tr>
-                <tr><td>Email</td><td><input type="email" value="<%= user.getEmail()%>" name="email" maxlength="50"></td></tr>  
-                <tr><td>Username</td><td><input type="text" value="<%= user.getUsername()%>" name="userName" maxlength="50"></td></tr>
-                <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password" maxlength="50"></td></tr
-                <tr><td>Street Address</td><td><input type="text" value="<%= user.getAddress()%>" name="address" maxlength="100"></td></tr>
-                <tr><td>City</td><td><input type="text" value="<%= user.getCity()%>" name="city" maxlength="50"></td></tr>
-                <tr><td>State</td><td><input type="text" value="<%= user.getState()%>" name="state" maxlength="50"></td></tr>
-                <tr><td>Country</td><td><input type="text" value="<%= user.getCountry()%>" name="country" maxlength="50"></td></tr>
-                <tr><td>Postcode</td><td><input type="text" value="<%= user.getPostcode()%>" name="postcode" maxlength="50"></td></tr>
-                <tr><td>Date of Birth</td><td><input type="date" value="<%= user.getDob()%>" name="dob" maxlength="10"></td></tr> 
-                
-                <tr><td><input type="hidden" value="updated" name="updated"></td>
-                    <td><input class="button" type="submit" value="Edit Details"> </td>
-                    <td> <p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p> </td>
-                
-                <tr><td> <button class="button" type="button" onclick="location.href='delete.jsp'" > Delete Account </button></td></tr>
-                 
-                
-                <tr><td><button class="button" type="button" onclick="location.href = 'index.jsp'" > Home </button></td></tr>
-                    
-                </tr>
-                </table> </center>
-        </form>
-               
-    </body>
+<body>
+        <center><h2>Order History</h2></center>
+        <div class="text-order">Please find below all of your orders. You can check order details to access your invoice and track your order. To create a new return, please click here.
+
+If you have already created a return and wish to check the status or download your return label click on View order details
+
+</div>
+
+    <div class="container">
+        <div class="table-wrapper">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Name</th>
+			<th>Order Date</th>						
+                        <th>Quantity</th>						
+			<th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1283</td>
+                        <td>Product Name</td>       
+                        <td>Jun 15, 2017</td>
+                        <td>2</td>
+			<td>$254</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>     
+</body>
+
+
 </html>

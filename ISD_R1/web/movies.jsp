@@ -40,6 +40,7 @@
      //Movie List
      
      ArrayList<Movie> movieList = manager.getMovies();
+
    %>
 
    <header class="clearfix">
@@ -52,14 +53,13 @@
                             <li><a href="movies.jsp" title="Movies" id="active"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
-                            <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <li><a href="account.jsp" title="User Details">User Details </a></li>
+                            <li><a href="orderHistory.jsp" title="Order History">Order History</a></li>
                             <%} else { %>
                             <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
                             <%} %>
-                            <% if (itemInCart) { %>
-                            <li><a href="index.jsp" title="Checkout"> Checkout </a></li>
-                            <%} %>
+                            <li><a href="cart.jsp" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -115,11 +115,20 @@
                                             <button type="submit"><i class="fas fa-minus"></i></i></button>
                                         </form>
                                     </td>
+                                                                        <td> 
+                                        <form action="addCartAction.jsp" method="post">
+                                            <input type="hidden" name="movieID" value="<%=movie.getID() %>"/>
+                                            <button type="submit">Add to Cart</button>
+                                        </form>
+                                    </td>
+
                                 </tr> 
                                 <%
                                             }
                                         }
-                                %> <%%>
+                                %> 
+                                <%
+                                %>
                             </table>
                         </div>
                             

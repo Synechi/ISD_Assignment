@@ -314,3 +314,7 @@ a#active::after {
 .search-container input[type=submit] {
     width: 10%;
 }
+
+.fas fa-shopping-cart {
+    font-size: x10;
+}
