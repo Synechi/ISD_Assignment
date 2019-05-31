@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.sql.Date;
 import Model.*;
 import java.sql.*;
+import java.util.Random;
 
 /**
  *
@@ -40,17 +41,17 @@ public class DBManager {
         return null;
     }
     //Find student by ID in the database
-    public User findUser(String username, String password) throws SQLException {
-        String fetch = "select * from OMSUSER.Users where username = '" + username + "' and password='" + password + "'";
+    public User findUser(String email, String password) throws SQLException {
+        String fetch = "select * from OMSUSER.Users where email = '" + email + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
-            String userName = rs.getString(4);
+            String userEmail = rs.getString(3);
             String userPass = rs.getString(5);
-            if (userName.equals(username) && userPass.equals(password)) {
+            if (userEmail.equals(email) && userPass.equals(password)) {
                 int userID = rs.getInt(1);
                 String name = rs.getString(2);
-                String userEmail = rs.getString(3);
+                String user = rs.getString(4);
                 String address = rs.getString(6);
                 String userCity = rs.getString(7);
                 String state = rs.getString(8);
@@ -58,7 +59,7 @@ public class DBManager {
                 String post = rs.getString(10);
                 java.sql.Date dob = rs.getDate(11);
                 int acctype = rs.getInt(12);
-                return new User(userID, name, userEmail, userName, userPass, address, userCity, state, country, post, dob, acctype);
+                return new User(userID, name, userEmail, user, userPass, address, userCity, state, country, post, dob, acctype);
             }
         }
         return null;
@@ -101,6 +102,20 @@ public class DBManager {
             movieList.add(movie);
         }
         return movieList;
+    }
+    
+       public ArrayList<Log> searchLogs(int userID) throws SQLException {
+        String fetch = "select * from OMSUSER.Logs where userid =" +userID + "";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Log> logList = new ArrayList<>();
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String desc = rs.getString(2);
+            int userid = rs.getInt(3);
+            Log log = new Log(id, desc, userid);
+                        logList.add(log);
+        }
+        return logList;
     }
     
     public Movie findMovie(int search) throws SQLException {
@@ -173,12 +188,16 @@ public class DBManager {
     //Add a student-data into the database
     public void addUser(int userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, java.sql.Date userDOB, int acctype) throws SQLException {        
         st.executeUpdate("INSERT INTO OMSUSER.Users " + "VALUES (" + userID + ", '" + name + "', '" + userEmail + "', '" + userName + "', '" + userPass + "', '" + address + "', '" + userCity + "', '" + state + "', '" + country + "', '" + post + "', '" + userDOB + "', " + acctype + ")");
-     
-    
     }
     
     public void addMovie(int id, String title, java.sql.Date relYr, String genre, double price , int stock, boolean status) throws SQLException {
         st.executeUpdate("INSERT INTO OMSUSER.Movies VALUES("+id+", '"+title+"', '"+relYr+"', '"+genre+"', "+price+", "+stock+", "+status+")");
+    }
+    
+        public void addLog(String description, int userid) throws SQLException {
+           Random rand=new Random();
+            int id = rand.nextInt(99999);
+        st.executeUpdate("INSERT INTO OMSUSER.Logs VALUES("+id+", '"+description+"', "+userid+")");
     }
 
     //update a student details in the database
@@ -189,6 +208,10 @@ public class DBManager {
     //delete a student from the database
     public void deleteUser(int ID) throws SQLException{
         st.executeUpdate("DELETE FROM OMSUSER.Users WHERE ID=" + ID + "");
+    }
+    
+        public void deleteLogs(int userID) throws SQLException{
+        st.executeUpdate("DELETE FROM OMSUSER.Logs WHERE userid=" + userID + "");
     }
     
     public void updateMovie (int id, String title, java.sql.Date relYr, String genre, double price , int stock, boolean status) throws SQLException {

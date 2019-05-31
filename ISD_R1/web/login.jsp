@@ -65,8 +65,8 @@
 
         
         
-  <center><h2>LOGIN</h2></center>
-            <form action="index.jsp">
+  <center><h2>LOGIN</center><span class="error"><c:if test="${existErr!=null}"><span class="error"><c:out value="${existErr}"/></span></c:if></span></h2>
+            <form action="loginAction.jsp" method="post">
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
@@ -81,10 +81,12 @@
                         </tr>
                         <tr>
                             <th>
-                        <button type="login" onclick="alert('One Moment')">Login to my Account</button>                           
-                                </th>
+                        <button type="submit" value="Login">Login to my Account</button>                           
+                               
+                            </th>
                         </tr>
                     </table>
             </form>  
+          ${existErr = null}
     </body>
 </html>
