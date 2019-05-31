@@ -103,6 +103,7 @@
                                     <td> <%=movie.getGenre() %> </td>
                                     <td> $<%=movie.getFormPrice() %> </td>
                                     <td> <%=movie.getStock() %> </td>
+                                    <% if (userStaff) { %>
                                     <td> 
                                         <form action="editMovie.jsp" method="post">
                                             <input type="hidden" name="movieID" value="<%=movie.getID() %>"/>
@@ -115,6 +116,7 @@
                                             <button type="submit"><i class="fas fa-minus"></i></i></button>
                                         </form>
                                     </td>
+                                    <% } %>
                                 </tr> 
                                 <%
                                             }
@@ -122,9 +124,10 @@
                                 %> <%%>
                             </table>
                         </div>
-                            
+    <% if (userStaff) { %>                       
     <div class="movieListEdit">
         <a href="addMovie.jsp"><img src="source/plus.svg" alt="Add Movie" class="movieListIcon"></a>
-    </div>                           
+    </div>
+    <% } %>
 </body>
 </html>
