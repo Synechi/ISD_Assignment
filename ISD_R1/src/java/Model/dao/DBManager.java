@@ -83,6 +83,22 @@ public class DBManager {
         return movieList;
     }
     
+        public ArrayList<Log> getLogs() throws SQLException {
+        String fetch = "select * from OMSUSER.Logs";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Log> logList = new ArrayList();
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String desc = rs.getString(2);
+            int userid = rs.getInt(3);
+            java.sql.Date date = rs.getDate(4);
+            Log log = new Log(id, desc, userid, date);
+            logList.add(log);
+        }
+        return logList;
+    }
+    
+    
     public ArrayList<Movie> searchMovies(String search) throws SQLException {
         String fetch = "select * from OMSUSER.Movies where lower(title) LIKE lower('%"+search+"%') or lower(genre) LIKE lower('%"+search+"%')";
         ResultSet rs = st.executeQuery(fetch);
@@ -104,6 +120,25 @@ public class DBManager {
         return movieList;
     }
     
+        public ArrayList<Log> searchThroughLogs(java.sql.Date search) throws SQLException {
+        String fetch = "select * from OMSUSER.Logs where datelogged='"+search+ "'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        ArrayList<Log> logList = new ArrayList();
+//        if (search.equals(null)) {
+//            return getLogs();
+//        }
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String desc = rs.getString(2);
+            int userid = rs.getInt(3);
+            java.sql.Date date = rs.getDate(4);
+            Log log = new Log(id, desc, userid, date);
+            logList.add(log);
+        }
+        return logList;
+    }
+    
 
        public ArrayList<Log> searchLogs(int userID) throws SQLException {
         String fetch = "select * from OMSUSER.Logs where userid =" +userID + "";
@@ -113,7 +148,8 @@ public class DBManager {
             int id = rs.getInt(1);
             String desc = rs.getString(2);
             int userid = rs.getInt(3);
-            Log log = new Log(id, desc, userid);
+            java.sql.Date date = rs.getDate(4);
+            Log log = new Log(id, desc, userid, date);
                         logList.add(log);
         }
         return logList;
@@ -221,10 +257,10 @@ public class DBManager {
         st.executeUpdate("INSERT INTO OMSUSER.Movies VALUES("+id+", '"+title+"', '"+relYr+"', '"+genre+"', "+price+", "+stock+", "+status+")");
     }
     
-        public void addLog(String description, int userid) throws SQLException {
+        public void addLog(String description, int userid, java.sql.Date dateAdded) throws SQLException {
            Random rand=new Random();
             int id = rand.nextInt(99999);
-        st.executeUpdate("INSERT INTO OMSUSER.Logs VALUES("+id+", '"+description+"', "+userid+")");
+        st.executeUpdate("INSERT INTO OMSUSER.Logs VALUES("+id+", '"+description+"', "+userid+", '"+dateAdded+"')");
     }
 
     //update a student details in the database

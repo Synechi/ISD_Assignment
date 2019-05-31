@@ -4,6 +4,10 @@
     Author     : Ben
 --%>
 
+
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Date"%>
 <%@page import="Model.User"%>
 <%@page import="Model.dao.DBManager"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -23,7 +27,9 @@
             LocalDateTime now = LocalDateTime.now();
             String desc = "";
             desc = user.getName() + " logged in at " + dtf.format(now);
-            manager.addLog(desc, user.getID());
+            java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
+ 
+            manager.addLog(desc, user.getID(), sqlDate);
             session.invalidate();
              
         %>

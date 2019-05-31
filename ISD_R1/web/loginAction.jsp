@@ -4,8 +4,11 @@
     Author     : emily
 --%>
 
-<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.LocalDate"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Date"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="Model.dao.DBManager"%>
 <%@page import="Model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,7 +35,9 @@
 	LocalDateTime now = LocalDateTime.now();
         String desc="";
          desc= user.getName() + " logged in at "+ String.valueOf(dtf.format(now));
-            manager.addLog(desc, user.getID());
+         
+java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
+            manager.addLog(desc, user.getID(), sqlDate);
         session.setAttribute("user", user);           
                 response.sendRedirect("welcome.jsp"); 
         }
