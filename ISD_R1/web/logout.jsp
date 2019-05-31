@@ -24,7 +24,9 @@
             String desc = "";
             desc = user.getName() + " logged in at " + dtf.format(now);
             manager.addLog(desc, user.getID());
+            session.setAttribute("user", null);
             session.invalidate();
+             
 
         %>
         You have been logged out.

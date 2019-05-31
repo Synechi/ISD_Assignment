@@ -25,18 +25,16 @@
  <% 
      DBManager manager = (DBManager)session.getAttribute("manager");
      User user = (User) session.getAttribute("user"); 
-     boolean userMember = false;
      boolean userStaff = false;
      boolean userExists = false;
      boolean itemInCart = false;
      if (user != null) 
      { userExists = true; 
-         if (user.getAccType() == 1)
-     {userMember = true;}
+     
      if (user.getAccType() == 2)
      {userStaff = true;}
      }
-
+     
      //Movie List
      
      ArrayList<Movie> movieList = manager.getMovies();
