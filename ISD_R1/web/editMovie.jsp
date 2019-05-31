@@ -3,6 +3,7 @@
     Created on : 28/05/2019, 5:34:57 PM
     Author     : Evan
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="Model.*"%>
 <%@page import="Model.dao.DBManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +18,17 @@
     </head>
     <% 
         DBManager manager = (DBManager)session.getAttribute("manager");
+        
+        Movie movieReturn = (Movie) session.getAttribute("movieEdit");
         Movie movie = manager.findMovie(Integer.parseInt(request.getParameter("movieID")));
+        
+        boolean actionReturn = false;
+        
+        if (movieReturn != null) {
+            actionReturn = true;
+        }
+        
+       
         User user = (User) session.getAttribute("user"); 
         boolean userMember = false;
         boolean userStaff = false;
@@ -57,14 +68,16 @@
                 </nav>
             </div>
     </header>
-    
+   
+                        
     <body>
         <center><h2>Edit <%= movie.getTitle()%></h2></center>
         <form action="editMovieAction.jsp" method="post">
             <table class="addMovTable">
                 <caption>* Indicates required.</caption>
                     <tr>
-                        <th class="field" colspan="2">Title: <input type="text" name="Title" size="50" required value="<%= movie.getTitle()%>"></th>                           
+                        <th class="field" colspan="2">Title: <input type="text" name="Title" size="50" required value="<%= movie.getTitle()%>">
+                        </th>                           
                     </tr>
                     <tr>
                         <th class="field" colspan="2">Movie Release Date: <input type="date" name="ReleaseYr" required value="<%= movie.getReleaseyr()%>"></th>                           
@@ -76,15 +89,15 @@
                         <th class="field" colspan="2">Price: <input type="number" name="Price" required value="<%= movie.getPrice()%>" step="0.01"></th>                           
                     </tr>
                     <tr>
-                        <th class="field" colspan="2">Stock: <input type="number" name="Stock" required value="<%= movie.getStock()%>"></th>                           
+                        <th class="field" colspan="2">Stock: <input type="number" name="Stock" required value="<%= movie.getStock()%>"</th>                           
                     </tr>
                     <tr>
                             <th>                                
-                                <input type="hidden" name="movieID" value="<%=movie.getID() %>"/>
-                                <input type="hidden" name="movieTitle" value="<%=movie.getTitle() %>"/>
+                                <input type="hidden" name="movieID" value="<%= movie.getID()%>"/>
+                                <input type="hidden" name="movieTitle" value="<%= movie.getTitle()%>"/>
                                 <input class="button" type="submit" value="Edit Movie" name="submit" >                                 
                             </th>
-                            <th><p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
+                            <th><p style="color: red;"> <c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if> </p></th>
                     </tr>
             </table>
         </form>

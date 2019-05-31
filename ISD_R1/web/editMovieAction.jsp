@@ -65,9 +65,7 @@
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
             int id = Integer.parseInt(request.getParameter("movieID"));
-            Movie movie = new Movie(id, title, sqlDate, genre, price, stock, status);
             manager.updateMovie(id, title, sqlDate, genre, price, stock, status);
-            request.setAttribute("movieEdit", movie);
             response.sendRedirect("movies.jsp");
         }
         

@@ -3,6 +3,7 @@
     Created on : 27/05/2019, 5:20:19 PM
     Author     : Evan
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="Model.dao.DBManager"%>
 <%@page import="Model.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -81,7 +82,8 @@
                             <th>                                
                                 <input class="button" type="submit" value="Add Movie" name="submit" >                                 
                             </th>
-                            <th><p style="color: red;"><c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
+                            
+                            <th><p style="color: red;"> <c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if></p></th>
                     </tr>
             </table>
         </form>
