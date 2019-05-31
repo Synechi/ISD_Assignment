@@ -15,13 +15,13 @@
 
         <%
             //Activate the database search-validate once DBManager functions are completed
-           DBManager manager = (DBManager)session.getAttribute("manager"); 
-           User user = (User) session.getAttribute("user");
-           manager.deleteUser(user.getID());
-           session.setAttribute("user", null);         
-                response.sendRedirect("index.jsp"); 
+            DBManager manager = (DBManager)session.getAttribute("manager");
+            User currentUser = manager.findUserID(Integer.parseInt(request.getParameter("userID")));
+            manager.deleteUser(currentUser.getID());
+            session.setAttribute("user", null);         
+            response.sendRedirect("index.jsp"); 
            
            
-           %>
+        %>
     </body>
 </html>

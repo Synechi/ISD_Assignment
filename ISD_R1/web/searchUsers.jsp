@@ -71,9 +71,11 @@
     <body>
         
         <!--Table of Users -->
+
     <centre><h2>All Users</h2></centre>
         <div>
             <table class="userTable" style="overflow-x: auto; overflow-y: auto;">
+
                 <tr>
                     <form action="searchUsers.jsp" method="post">
                         <th colspan="6">
@@ -85,13 +87,15 @@
                     </form>
                 </tr>
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Username</th>
                     <th>Email</th>
+                    <th>Account Type</th>
                 </tr>
                 <% if(userList.size() == 0) { %>
                     <tr>
-                        <td style="text-align: center" colspan="5">No Movies Matching Search!</td>
+                        <td style="text-align: center" colspan="5">No Users Matching Search!</td>
                     </tr>
                         <%} else { 
                             for (User users : userList) {
@@ -103,13 +107,14 @@
                         <td> <%=users.getEmail() %> </td>
                         <td> <%=users.getAccType() %></td>
                         <td> 
-                            <form action="account.jsp" method="post">
+
+                            <form action="adminEditAccount.jsp" method="post">
                                 <input type="hidden" name="userID" value="<%=users.getID() %>"/>
                                     <button type="submit"><i class="fas fa-cog"></i></button>
                                 </form>
                         </td>
                         <td> 
-                            <form action="<delete.jsp" method="post">
+                            <form action="delete.jsp" method="post">
                                 <input type="hidden" name="userID" value="<%=users.getID() %>"/>
                                     <button type="submit"><i class="fas fa-minus"></i></button>
                             </form>
@@ -123,6 +128,9 @@
         </div>
     
         <div class="userListEdit">
-            <a href="signup.jsp"><img src="source/plus.svg" alt="Add User" class="userListIcon"></a>
+
+            <a href="adminAddAccount.jsp"><img src="source/plus.svg" alt="Add User" class="userListIcon"></a>
         </div>
     </body>
+</html>
+

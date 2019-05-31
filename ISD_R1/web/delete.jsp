@@ -4,6 +4,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Random"%>
 <%@page import="Model.User"%>
+<%@page import="Model.*"%>
 <%@page import="Model.dao.DBManager"%>
 <%@page import="java.sql.*"%>
 <%@page import="Controller.*"%>
@@ -19,7 +20,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <% User user = (User) session.getAttribute("user"); 
+    <%  DBManager manager = (DBManager)session.getAttribute("manager");
+        User currentUser = manager.findUserID(Integer.parseInt(request.getParameter("userID")));
+        User user = (User) session.getAttribute("user"); 
      boolean userMember = false;
      boolean userStaff = false;
      boolean userExists = false;
@@ -41,11 +44,14 @@
                 <nav>
                     <div class="navlist">
                         <ul>
-                            <li><a href="index.jsp" title="Home"> Home </a></li>	
-                            <li><a href="movies.jsp" title="Movies"> Movies </a></li>
+                            <li><a href="index.jsp" title="Home" > Home </a></li>	
+                            <li><a href="movies.jsp" title="Movies" id="active"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <% if(user.getAccType()==2) {%>
+                            <li><a href="searchUsers.jsp" title="Admin"> Admin </a></li>
+                            <% } %>
                             <%} else { %>
                             <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
@@ -58,8 +64,6 @@
                 </nav>
             </div>
     </header>
-
-     
                                  
  
     <body>
@@ -68,8 +72,15 @@
     <center> <h3> Click "Delete" to proceed in account deletion. Click "Cancel" to return. </h3>
         
             <center><table>
-                    <tr><td><button class="button" type="button" onClick="location.href='deleteAction.jsp'"> Delete</td>
-                        <td> <button class="button" type="button" onclick="location.href='account.jsp'"> Cancel </button></td>
+                    <tr><td>
+                            <form action="deleteAction.jsp" method="post">
+                                <input type="hidden" name="userID" value="<%=currentUser.getID() %>"/>
+                                    <button type="submit" class="button">Delete</button>
+                            </form>
+                            
+                            <!--<button class="button" type="button" onClick="location.href='deleteAction.jsp'"> Delete -->
+                        </td>
+                        <td> <button class="button" type="button" onclick="history.go(-1)"> Cancel </button></td>
                     </tr>
                 </table>
             </center>

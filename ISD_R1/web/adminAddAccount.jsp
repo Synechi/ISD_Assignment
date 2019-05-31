@@ -1,8 +1,9 @@
 <%-- 
-    Document   : signup
-    Created on : 17/04/2019, 4:16:38 PM
+    Document   : adminAddAccount
+    Created on : 31/05/2019, 8:51:06 PM
     Author     : Griffin
 --%>
+
 
 
 <%@page import="Model.dao.DBManager"%>
@@ -44,13 +45,16 @@
                     <div class="navlist">
                         <ul>
                             <li><a href="index.jsp" title="Home" > Home </a></li>	
-                            <li><a href="movies.jsp" title="Movies"> Movies </a></li>
+                            <li><a href="movies.jsp" title="Movies" id="active"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <% if(user.getAccType()==2) {%>
+                            <li><a href="searchUsers.jsp" title="Admin"> Admin </a></li>
+                            <% } %>
                             <%} else { %>
                             <li><a href="login.jsp" title="Login"> Login </a></li>
-                            <li><a href="signup.jsp" title="Reigster" id="active"> Register </a></li>
+                            <li><a href="signup.jsp" title="Reigster"> Register </a></li>
                             <%} %>
                             <li><a href="cart.jsp" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
                             
@@ -61,8 +65,8 @@
     </header>
        
     <body>  
-        <center><h2>Register</h2></center>
-            <form action="registerAction.jsp" method="post">
+        <center><h2>Create New User</h2></center>
+            <form action="adminRegisterAction.jsp" method="post">
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
@@ -99,7 +103,10 @@
                         <tr>
                             <th class="field" colspan="2"><input type="date" name="DOB" maxlength="10" required placeholder="DOB: dd/mm/yyyy"></th>
                         </tr>
-                        
+                        <tr>
+                            <th><input type="checkbox" name="tosEmail" value="Yes"></th>
+                            <th class="checktext">Send regular emails about newly added movies.</th>          
+                        </tr>
                         <tr>
                             <th><input type="checkbox" name="tos" value="Agree to TOS"></th>
                             <th class="checktext">Agree to TOS</th> 

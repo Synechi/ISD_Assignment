@@ -48,29 +48,29 @@
                  if (request.getParameter("tos") == null)
             {
                 session.setAttribute("existErr", "Must agree to TOS");
-                response.sendRedirect("signup.jsp");      
+                response.sendRedirect("adminAddAccount.jsp");      
                 return;
             }
                 if (!validUsername && !validEmail){
                 session.setAttribute("existErr", "Username and Email already in use");
-                response.sendRedirect("signup.jsp");     
+                response.sendRedirect("adminAddAccount.jsp");     
                 return;
             }  
                  
              if (!validUsername){
                 session.setAttribute("existErr", "Username already in use");
-                response.sendRedirect("signup.jsp"); 
+                response.sendRedirect("adminAddAccount.jsp"); 
                 return;
             }  
            
               if (!validEmail){
                 session.setAttribute("existErr", "Email already in use");
-                response.sendRedirect("signup.jsp");  
+                response.sendRedirect("adminAddAccount.jsp");  
                 return;
             }  
               if (!validPost || postcode.length() != 4) 
              { session.setAttribute("existErr", "Postcode must be 4 digits");
-                response.sendRedirect("signup.jsp");  
+                response.sendRedirect("adminAddAccount.jsp");  
                 return;}
             /* if(!validDob)
              { session.setAttribute("existErr", "Date must be in format: dd/mm/yyyy");
@@ -82,10 +82,9 @@
          int key = (new Random()).nextInt(999999); 
          java.util.Date date = format.parse(dob);
          java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-        User user = new User(key, name, email, username, password, address, city, state, country, postcode, sqlDate, 1);
-        session.setAttribute("user", user);       
-        manager.addUser(key, name, email, username, password, address, city, state, country, postcode, sqlDate, 1);     
-                response.sendRedirect("welcome.jsp"); 
+         User user = new User(key, name, email, username, password, address, city, state, country, postcode, sqlDate, 1);
+         manager.addUser(key, name, email, username, password, address, city, state, country, postcode, sqlDate, 1);     
+         response.sendRedirect("searchUsers.jsp");
             }
          
         %>
