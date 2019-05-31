@@ -47,8 +47,11 @@
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <% if(user.getAccType()==2) {%>
+                            <li><a href="searchUsers.jsp" title="Admin"> Admin </a></li>
+                            <% } %>
                             <%} else { %>
-                            <li><a href="login.jsp" title="Login" id="active"> Login </a></li>
+                            <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
                             <%} %>
                             <li><a href="cart.jsp" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
