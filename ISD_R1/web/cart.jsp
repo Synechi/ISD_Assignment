@@ -9,6 +9,7 @@
 <%@page import="java.util.Random"%>
 <%@page import="Model.User"%>
 <%@page import="Model.dao.DBManager"%>
+<%@page import="Model.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="Controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +29,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="isd1.css">
     </head>
-        <% User user = (User) session.getAttribute("user"); 
+        
+        <% 
+        
+        User user = (User) session.getAttribute("user"); 
      boolean userMember = false;
      boolean userStaff = false;
      boolean userExists = false;
@@ -49,7 +53,7 @@
                 <nav>
                     <div class="navlist">
                         <ul>
-                            <li><a href="index.jsp" title="Home" id="active"> Home </a></li>	
+                            <li><a href="index.jsp" title="Home"> Home </a></li>	
                             <li><a href="movies.jsp" title="Movies"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
@@ -60,7 +64,7 @@
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
                             <%} %>
                             
-                            <li><a href="cart.jsp" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="cart.jsp" title="Cart" id="active"><i class="fas fa-shopping-cart"></i></a></li>
                             
                         </ul>
                     </div>
@@ -85,12 +89,19 @@
 							<th style="width:10%"></th>
 						</tr>
 					</thead>
+            <% /* if (orderList.size() == 0) { %>
+            <tr>
+                <td style="text-align: center" colspan="5">No Movies Currently Avaliable!</td>
+            </tr>
+            <%} /* else {
+                for (Movie movie : movieList) { */
+            %> 
+            <tr>
 					<tbody>
 						<tr>
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-									<div class="col-sm-10">
+st									<div class="col-sm-10">
 										<h4 class="nomargin">Product 1</h4>
 									</div>
 								</div>
@@ -111,10 +122,10 @@
 							<td class="text-center"><strong>Total 1.99</strong></td>
 						</tr>
 						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td><a href="movies.jsp" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td><a href="submitOrderAction.jsp" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>
 				</table>

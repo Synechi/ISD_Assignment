@@ -18,6 +18,7 @@
     </head>
     <body>
         <%  
+            
         DBManager manager = (DBManager)session.getAttribute("manager");    
         String title = request.getParameter("Title");
         String relYr = request.getParameter("ReleaseYr");

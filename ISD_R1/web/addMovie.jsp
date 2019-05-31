@@ -45,13 +45,14 @@
                             <li><a href="movies.jsp" title="Movies"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
-                            <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <li><a href="account.jsp" title="User Details">User Details </a></li>
+                            <li><a href="orderHistory.jsp" title="Order History">Order History</a></li>
                             <%} else { %>
                             <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
                             <%} %>
                             <% if (itemInCart) { %>
-                            <li><a href="index.jsp" title="Checkout"> Checkout </a></li>
+                            <li><a href="cart.jsp" title="Checkout"> Checkout </a></li>
                             <%} %>
                         </ul>
                     </div>

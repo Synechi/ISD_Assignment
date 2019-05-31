@@ -48,6 +48,8 @@
                         <ul>
                             <li><a href="index.jsp" title="Home"  id ="active"> Home </a></li>	
                             <li><a href="movies.jsp" title="Movies"> Movies </a></li>
+                            <li><a href="searchUsers.jsp" title="Admin"> Admin </a></li>
+
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details">User Details </a></li>

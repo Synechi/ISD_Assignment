@@ -61,7 +61,7 @@
                 </nav>
             </div>
     </header>
-    <body>
+    <body
        
     <center><h2>My Account</h2></center>
         <form action="editAction.jsp" method="POST">

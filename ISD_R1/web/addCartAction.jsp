@@ -15,24 +15,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add To Cart Action</title>
+        <title>Add To Order Action</title>
     </head>
     <body>
+        
         <%
-            DBManager manager = (DBManager)session.getAttribute("manager");
-            int id = (new Random()).nextInt(999999);
-            
-            boolean validStock = false;
-            
-            if (stock > 0) {
-                validStock = true;
-            }
-            else {
-            manager.addToCart(id, title, price);
-            response.sendRedirect("movies.jsp");
-            }
-        %>
+        int id = Integer.parseInt(request.getParameter("movieID"));
+       
+        String title = request.getParameter("title");
+        double price = Double.parseDouble(request.getParameter("Price"));
+        
+        DBManager manager = (DBManager)session.getAttribute("manager");                                                                                                 
+        int orderID = (new Random()).nextInt(999999);
+        manager.addToOrder(id, title, price);
+        response.sendRedirect("movies.jsp");
+
+           %>
     </body>
 </html>
-
-
