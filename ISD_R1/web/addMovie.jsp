@@ -41,11 +41,14 @@
                 <nav>
                     <div class="navlist">
                         <ul>
-                            <li><a href="index.jsp" title="Home"> Home </a></li>	
-                            <li><a href="movies.jsp" title="Movies"> Movies </a></li>
+                            <li><a href="index.jsp" title="Home" > Home </a></li>	
+                            <li><a href="movies.jsp" title="Movies" id="active"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <% if(user.getAccType()==2) {%>
+                            <li><a href="searchUsers.jsp" title="Admin"> Admin </a></li>
+                            <% } %>
                             <%} else { %>
                             <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>

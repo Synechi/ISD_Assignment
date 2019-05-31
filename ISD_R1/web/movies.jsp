@@ -42,7 +42,7 @@
      ArrayList<Movie> movieList = manager.getMovies();
    %>
 
-   <header class="clearfix">
+    <header class="clearfix">
             <div class="navigation">
                 <a href="index.jsp"><img src="source/logo.png" alt="OMS" class="title"></a>
                 <nav>
@@ -53,6 +53,9 @@
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details"> User Details </a></li>
+                            <% if(user.getAccType()==2) {%>
+                            <li><a href="searchUsers.jsp" title="Admin"> Admin </a></li>
+                            <% } %>
                             <%} else { %>
                             <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
