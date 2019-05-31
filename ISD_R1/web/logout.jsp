@@ -28,7 +28,7 @@
              
         %>
         You have been logged out.
-        Click here to go to<a href="login.jsp" title="Login" id="active"> Login </a>page.
+        Click here to go to<a href="index.jsp" title="Login" id="active"> Login </a>page.
 
     </body>
 </html>
