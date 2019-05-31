@@ -18,12 +18,14 @@
     </head>
     <body>
         <%  
+            
         DBManager manager = (DBManager)session.getAttribute("manager");    
         String title = request.getParameter("Title");
         String relYr = request.getParameter("ReleaseYr");
         String genre = request.getParameter("Genre");
         double price = Double.parseDouble(request.getParameter("Price"));
         int stock = Integer.parseInt(request.getParameter("Stock"));
+        
         boolean status = false;
         boolean validStock = false;
         boolean validPrice = false;

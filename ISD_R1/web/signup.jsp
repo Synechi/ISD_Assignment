@@ -18,6 +18,7 @@
                 <link rel="stylesheet" href="ISD CSS.css">
         <title>Register</title>
         <link rel="stylesheet" href="isd1.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <% User user = (User) session.getAttribute("user"); 
@@ -51,9 +52,8 @@
                             <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster" id="active"> Register </a></li>
                             <%} %>
-                            <% if (itemInCart) { %>
-                            <li><a href="index.jsp" title="Checkout"> Checkout </a></li>
-                            <%} %>
+                            <li><a href="cart.jsp" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
+                            
                         </ul>
                     </div>
                 </nav>

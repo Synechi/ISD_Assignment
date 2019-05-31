@@ -60,9 +60,7 @@
                             <li><a href="login.jsp" title="Login"> Login </a></li>
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
                             <%} %>
-                            <% if (itemInCart) { %>
-                            <li><a href="index.jsp" title="Checkout"> Checkout </a></li>
-                            <%} %>
+                            <li><a href="cart.jsp" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                 </nav>
