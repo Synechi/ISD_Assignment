@@ -1,9 +1,11 @@
 <%-- 
-    Document   : showLog
-    Created on : 29/05/2019, 4:49:20 PM
+    Document   : searchLogs
+    Created on : 31/05/2019, 8:09:52 PM
     Author     : emily
 --%>
 
+
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Log"%>
 <%@page import="Model.User"%>
@@ -36,9 +38,14 @@
                 userStaff = true;
             }
         }
+        
+        String formDate = request.getParameter("search");
 
-        ArrayList<Log> logList = new ArrayList();
-        logList = manager.searchLogs(user.getID());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date date = format.parse(formDate);
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+               
+        ArrayList<Log> logList = manager.searchThroughLogs(sqlDate);
     %>
      <header class="clearfix">
             <div class="navigation">
