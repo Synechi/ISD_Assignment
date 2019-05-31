@@ -64,7 +64,7 @@
                             <li><a href="signup.jsp" title="Reigster"> Register </a></li>
                             <%} %>
                             
-                            <li><a href="cart.jsp" title="Cart" id="active"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="cart.jsp" title="Cart" ><i class="fas fa-shopping-cart"></i></a></li>
                             
                         </ul>
                     </div>

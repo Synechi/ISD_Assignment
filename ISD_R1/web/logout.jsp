@@ -34,7 +34,7 @@
              
         %>
         You have been logged out.
-        Click here to go to<a href="index.jsp" title="Home" id="active"> Home </a>page.
+        Click here to go to<a href="index.jsp" title="Home"> Home </a>page.
 
     </body>
 </html>

@@ -52,7 +52,7 @@
                     <div class="navlist">
                         <ul>
                             <li><a href="index.jsp" title="Home" > Home </a></li>	
-                            <li><a href="movies.jsp" title="Movies" id="active"> Movies </a></li>
+                            <li><a href="movies.jsp" title="Movies"> Movies </a></li>
                             <% if(userExists) {%>
                             <li><a href="logout.jsp" title="Logout"> Logout </a></li>
                             <li><a href="account.jsp" title="User Details"> User Details </a></li>
@@ -98,10 +98,10 @@
                                 <input type="hidden" name="movieTitle" value="<%= movie.getTitle()%>"/>
                                 <input class="button" type="submit" value="Edit Movie" name="submit" >                                 
                             </th>
-                            <th><p style="color: red;"> <c:if test="${existErr!=null}"><c:out value="${existErr}"/></c:if> </p></th>
+                            
                     </tr>
             </table>
         </form>
-        ${existErr = null}
+        
     </body>
 </html>
