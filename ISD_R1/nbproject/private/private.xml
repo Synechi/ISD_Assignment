@@ -3,6 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/delete.jsp</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/deleteAction.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/editMovie.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/addMovie.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/login.jsp</file>
@@ -15,8 +17,10 @@
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/src/java/model/dao/DBManager.java</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/index.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/src/java/model/User.java</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/loginAction.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/registerAction.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/editMovieAction.jsp</file>
+            <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/logout.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/src/java/model/Movie.java</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/account.jsp</file>
             <file>file:/C:/Users/Evan/Desktop/ISD%20Project/ISD_Assignment/ISD_R1/web/WEB-INF/web.xml</file>

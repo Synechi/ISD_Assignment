@@ -21,7 +21,7 @@
             DBManager manager = (DBManager)session.getAttribute("manager");
             String email = request.getParameter("Email");       
         String password = request.getParameter("Password");
-                
+        
         User user = manager.findUser(email, password);
         if (user == null) {
                 session.setAttribute("existErr", "Either username and/or password is incorrect. Please try again.");

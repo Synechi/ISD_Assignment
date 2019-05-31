@@ -24,10 +24,8 @@
             String desc = "";
             desc = user.getName() + " logged in at " + dtf.format(now);
             manager.addLog(desc, user.getID());
-            session.setAttribute("user", null);
             session.invalidate();
              
-
         %>
         You have been logged out.
         Click here to go to<a href="login.jsp" title="Login" id="active"> Login </a>page.
