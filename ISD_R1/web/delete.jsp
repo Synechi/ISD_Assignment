@@ -4,6 +4,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Random"%>
 <%@page import="Model.User"%>
+<%@page import="Model.*"%>
 <%@page import="Model.dao.DBManager"%>
 <%@page import="java.sql.*"%>
 <%@page import="Controller.*"%>
@@ -15,10 +16,12 @@
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" href="ISD CSS.css">
         <title>Welcome</title>
-        <link rel="stylesheet" href="isd1.css">
+        <link rel="stylesheet" href  ="isd1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <% User user = (User) session.getAttribute("user"); 
+    <%  DBManager manager = (DBManager)session.getAttribute("manager");
+        User currentUser = manager.findUserID(Integer.parseInt(request.getParameter("userID")));
+        User user = (User) session.getAttribute("user"); 
      boolean userMember = false;
      boolean userStaff = false;
      boolean userExists = false;
@@ -68,8 +71,15 @@
     <center> <h3> Click "Delete" to proceed in account deletion. Click "Cancel" to return. </h3>
         
             <center><table>
-                    <tr><td><button class="button" type="button" onClick="location.href='deleteAction.jsp'"> Delete</td>
-                        <td> <button class="button" type="button" onclick="location.href='account.jsp'"> Cancel </button></td>
+                    <tr><td>
+                            <form action="deleteAction.jsp" method="post">
+                                <input type="hidden" name="userID" value="<%=currentUser.getID() %>"/>
+                                    <button type="submit" class="button">Delete</button>
+                            </form>
+                            
+                            <!--<button class="button" type="button" onClick="location.href='deleteAction.jsp'"> Delete -->
+                        </td>
+                        <td> <button class="button" type="button" onclick="history.go(-1)"> Cancel </button></td>
                     </tr>
                 </table>
             </center>

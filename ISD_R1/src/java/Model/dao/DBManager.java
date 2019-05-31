@@ -103,6 +103,7 @@ public class DBManager {
         return movieList;
     }
     
+    
     public Movie findMovie(int search) throws SQLException {
         String fetch = "select * FROM OMSUSER.Movies where id ="+search+"";
         ResultSet rs = st.executeQuery(fetch);
@@ -169,12 +170,35 @@ public class DBManager {
         }
         return false;
     }
+    
+    
+    public ArrayList<User> searchUser(String search) throws SQLException { //instead of phone number, we will use email to search 
+        String fetch = "select * from OMSUSER.Users where lower(name) LIKE lower('%"+search+"%') or lower(email) LIKE lower('%"+search+"%')";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<User> userList = new ArrayList<>();
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String name = rs.getString(2);
+            String email = rs.getString(3);
+            String username = rs.getString(4);
+            String password = rs.getString(5);
+            String address = rs.getString(6);
+            String city = rs.getString(7);
+            String state = rs.getString(8);
+            String country = rs.getString(9);
+            String postcode = rs.getString(10);
+            java.sql.Date dob = rs.getDate(11);
+            int accType = rs.getInt(12);
+            User user = new User(id, name, email, username, password, address, city, state, country, postcode, dob, accType);
+            userList.add(user);
+        }
+        return userList;
+    }
+    
 
     //Add a student-data into the database
     public void addUser(int userID, String name, String userEmail, String userName, String userPass, String address, String userCity, String state, String country, String post, java.sql.Date userDOB, int acctype) throws SQLException {        
         st.executeUpdate("INSERT INTO OMSUSER.Users " + "VALUES (" + userID + ", '" + name + "', '" + userEmail + "', '" + userName + "', '" + userPass + "', '" + address + "', '" + userCity + "', '" + state + "', '" + country + "', '" + post + "', '" + userDOB + "', " + acctype + ")");
-     
-    
     }
     
     public void addMovie(int id, String title, java.sql.Date relYr, String genre, double price , int stock, boolean status) throws SQLException {

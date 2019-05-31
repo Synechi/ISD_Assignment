@@ -18,23 +18,23 @@
            DBManager manager = (DBManager)session.getAttribute("manager"); 
            User user = (User) session.getAttribute("user");
 
-             String username = request.getParameter("userName");
+            String username = request.getParameter("userName");
             String email = request.getParameter("email");      
             System.out.println(email);
-             System.out.println(username);
-             System.out.println(user.getEmail());
-             System.out.println(user.getUsername());
+            System.out.println(username);
+            System.out.println(user.getEmail());
+            System.out.println(user.getUsername());
              
             boolean validEmail = true;
             boolean validUsername = true;
             System.out.println(validEmail);
-             System.out.println(validUsername);
+            System.out.println(validUsername);
             if(!manager.checkUsername(username) && !username.equals(user.getUsername()))
             {validUsername = false;}
             if(!manager.checkEmail(email) && !email.equals(user.getEmail()))
             {validEmail = false;}
             System.out.println(validEmail);
-             System.out.println(validUsername);
+            System.out.println(validUsername);
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         String address = request.getParameter("address");

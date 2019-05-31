@@ -1,8 +1,9 @@
 <%-- 
-    Document   : signup
-    Created on : 17/04/2019, 4:16:38 PM
+    Document   : adminAddAccount
+    Created on : 31/05/2019, 8:51:06 PM
     Author     : Griffin
 --%>
+
 
 
 <%@page import="Model.dao.DBManager"%>
@@ -64,8 +65,8 @@
     </header>
        
     <body>  
-        <center><h2>Register</h2></center>
-            <form action="registerAction.jsp" method="post">
+        <center><h2>Create New User</h2></center>
+            <form action="adminRegisterAction.jsp" method="post">
                     <table class="signuptable" style="width:50%">
                         <caption>* Indicates required.</caption>
                         <tr>
@@ -104,7 +105,7 @@
                         </tr>
                         <tr>
                             <th><input type="checkbox" name="tosEmail" value="Yes"></th>
-                            <th class="checktext">I would like to receive regular emails about newly added movies.</th>          
+                            <th class="checktext">Send regular emails about newly added movies.</th>          
                         </tr>
                         <tr>
                             <th><input type="checkbox" name="tos" value="Agree to TOS"></th>
